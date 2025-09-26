@@ -1,0 +1,402 @@
+[
+  {
+    "question": "What is the type of relationship between the following ASes: AS3300, AS9002?",
+    "answer": "The relationship between AS3300 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8283, AS9304?",
+    "answer": "The relationship between AS8283 and AS9304 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8551, AS197797?",
+    "answer": "The relationship between AS8551 and AS197797 is: Provider to Customer, where AS8551 is the provider and AS197797 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS45691, AS9002?",
+    "answer": "The relationship between AS45691 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS59891, AS8283?",
+    "answer": "The relationship between AS59891 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS50245, AS8283?",
+    "answer": "The relationship between AS50245 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS44066, AS8283?",
+    "answer": "The relationship between AS44066 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS16909, AS8283?",
+    "answer": "The relationship between AS16909 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS40934, AS9002?",
+    "answer": "The relationship between AS40934 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8283, AS8632?",
+    "answer": "The relationship between AS8283 and AS8632 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS10222, AS9002?",
+    "answer": "The relationship between AS10222 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS45499, AS9002?",
+    "answer": "The relationship between AS45499 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS199995, AS62259?",
+    "answer": "The relationship between AS199995 and AS62259 is: Provider to Customer, where AS199995 is the provider and AS62259 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS197155?",
+    "answer": "The relationship between AS9002 and AS197155 is: Provider to Customer, where AS9002 is the provider and AS197155 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS5394, AS8283?",
+    "answer": "The relationship between AS5394 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS207490?",
+    "answer": "The relationship between AS9002 and AS207490 is: Provider to Customer, where AS9002 is the provider and AS207490 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS39216?",
+    "answer": "The relationship between AS9002 and AS39216 is: Provider to Customer, where AS9002 is the provider and AS39216 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8551, AS211681?",
+    "answer": "The relationship between AS8551 and AS211681 is: Provider to Customer, where AS8551 is the provider and AS211681 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8551, AS207591?",
+    "answer": "The relationship between AS8551 and AS207591 is: Provider to Customer, where AS8551 is the provider and AS207591 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS6830, AS8283?",
+    "answer": "The relationship between AS6830 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS43350, AS8283?",
+    "answer": "The relationship between AS43350 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS47674, AS8283?",
+    "answer": "The relationship between AS47674 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS210752?",
+    "answer": "The relationship between AS9002 and AS210752 is: Provider to Customer, where AS9002 is the provider and AS210752 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8551, AS199989?",
+    "answer": "The relationship between AS8551 and AS199989 is: Provider to Customer, where AS8551 is the provider and AS199989 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS200470?",
+    "answer": "The relationship between AS9002 and AS200470 is: Provider to Customer, where AS9002 is the provider and AS200470 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS38182, AS8283?",
+    "answer": "The relationship between AS38182 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS25905, AS9002?",
+    "answer": "The relationship between AS25905 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS5432, AS9002?",
+    "answer": "The relationship between AS5432 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS20326, AS9002?",
+    "answer": "The relationship between AS20326 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS197099?",
+    "answer": "The relationship between AS9002 and AS197099 is: Provider to Customer, where AS9002 is the provider and AS197099 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9002, AS39007?",
+    "answer": "The relationship between AS9002 and AS39007 is: Provider to Customer, where AS9002 is the provider and AS39007 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS43641, AS8283?",
+    "answer": "The relationship between AS43641 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS60299, AS8283?",
+    "answer": "The relationship between AS60299 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS200462, AS205112?",
+    "answer": "The relationship between AS200462 and AS205112 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS58580, AS9002?",
+    "answer": "The relationship between AS58580 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS200462, AS24961?",
+    "answer": "The relationship between AS200462 and AS24961 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS25182, AS8283?",
+    "answer": "The relationship between AS25182 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS18530, AS9002?",
+    "answer": "The relationship between AS18530 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS213241, AS8283?",
+    "answer": "The relationship between AS213241 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS60294, AS8283?",
+    "answer": "The relationship between AS60294 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS24429, AS8283?",
+    "answer": "The relationship between AS24429 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS42695, AS8283?",
+    "answer": "The relationship between AS42695 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS62838, AS9002?",
+    "answer": "The relationship between AS62838 and AS9002 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS211713, AS8283?",
+    "answer": "The relationship between AS211713 and AS8283 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS12709, AS212769?",
+    "answer": "The relationship between AS12709 and AS212769 is: Provider to Customer where AS12709 is the provider and AS212769 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS3561, AS209?",
+    "answer": "The relationship between AS3561 and AS209 is: Provider to Customer where AS209 is the provider and AS3561 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS7660, AS2516?",
+    "answer": "The relationship between AS7660 and AS2516 is: Provider to Customer where AS2516 is the provider and AS7660 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS3303, AS12709?",
+    "answer": "The relationship between AS3303 and AS12709 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS20912, AS8220?",
+    "answer": "The relationship between AS20912 and AS8220 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS49788, AS12552?",
+    "answer": "The relationship between AS49788 and AS12552 is: Provider to Customer where AS12552 is the provider and AS49788 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS293, AS8220?",
+    "answer": "The relationship between AS293 and AS8220 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS57866, AS6830?",
+    "answer": "The relationship between AS57866 and AS6830 is: Provider to Customer where AS6830 is the provider and AS57866 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9299, AS7629?",
+    "answer": "The relationship between AS9299 and AS7629 is: Provider to Customer where AS9299 is the provider and AS7629 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS268976, AS16735?",
+    "answer": "The relationship between AS268976 and AS16735 is: Provider to Customer where AS16735 is the provider and AS268976 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS7459, AS396365?",
+    "answer": "The relationship between AS7459 and AS396365 is: Provider to Customer where AS7459 is the provider and AS396365 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS2497, AS3257?",
+    "answer": "The relationship between AS2497 and AS3257 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS37100, AS3257?",
+    "answer": "The relationship between AS37100 and AS3257 is: Provider to Customer where AS3257 is the provider and AS37100 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS7459, AS20042?",
+    "answer": "The relationship between AS7459 and AS20042 is: Provider to Customer where AS7459 is the provider and AS20042 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS40694, AS20042?",
+    "answer": "The relationship between AS40694 and AS20042 is: Provider to Customer where AS20042 is the provider and AS40694 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS8551, AS209028?",
+    "answer": "The relationship between AS8551 and AS209028 is: Provider to Customer where AS8551 is the provider and AS209028 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS20804, AS34224?",
+    "answer": "The relationship between AS20804 and AS34224 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS20130, AS23352?",
+    "answer": "The relationship between AS20130 and AS23352 is: Provider to Customer where AS23352 is the provider and AS20130 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS37100, AS20804?",
+    "answer": "The relationship between AS37100 and AS20804 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS201893, AS20804?",
+    "answer": "The relationship between AS201893 and AS20804 is: Provider to Customer where AS20804 is the provider and AS201893 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS41023, AS20804?",
+    "answer": "The relationship between AS41023 and AS20804 is: Provider to Customer where AS20804 is the provider and AS41023 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS197155, AS20804?",
+    "answer": "The relationship between AS197155 and AS20804 is: Provider to Customer where AS20804 is the provider and AS212769 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS197155, AS200088?",
+    "answer": "The relationship between AS197155 and AS200088 is: Provider to Customer where AS197155 is the provider and AS200088 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS20912, AS13335?",
+    "answer": "The relationship between AS20912 and AS13335 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS23764, AS38040?",
+    "answer": "The relationship between AS23764 and AS38040 is: Provider to Customer where AS23764 is the provider and AS38040 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS38040, AS23969?",
+    "answer": "The relationship between AS38040 and AS23969 is: Provider to Customer where AS38040 is the provider and AS23969 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS4837, AS138421?",
+    "answer": "The relationship between AS4837 and AS138421 is: Provider to Customer where AS4837 is the provider and AS138421 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS4837, AS4808?",
+    "answer": "The relationship between AS4837 and AS4808 is: Provider to Customer where AS4837 is the provider and AS4808 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS4755, AS132215?",
+    "answer": "The relationship between AS4755 and AS132215 is: Provider to Customer where AS4755 is the provider and AS132215 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9583, AS132215?",
+    "answer": "The relationship between AS9583 and AS132215 is: Provider to Customer where AS9583 is the provider and AS132215 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS6461, AS7473?",
+    "answer": "The relationship between AS6461 and AS7473 is: Provider to Customer where AS6461 is the provider and AS7473 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS7473, AS9583?",
+    "answer": "The relationship between AS7473 and AS9583 is: Provider to Customer where AS7473 is the provider and AS9583 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS4755, AS396421?",
+    "answer": "The relationship between AS4755 and AS396421 is: Provider to Customer where AS4755 is the provider and AS396421 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9583, AS140202?",
+    "answer": "The relationship between AS9583 and AS140202 is: Provider to Customer where AS9583 is the provider and AS140202 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS64049, AS55836?",
+    "answer": "The relationship between AS64049 and AS55836 is: Provider to Customer where AS64049 is the provider and AS55836 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9885, AS142501?",
+    "answer": "The relationship between AS9885 and AS142501 is: Provider to Customer where AS9885 is the provider and AS142501 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS148000, AS142501?",
+    "answer": "The relationship between AS148000 and AS142501 is: Provider to Customer where AS142501 is the provider and AS148000 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS3786, AS38091?",
+    "answer": "The relationship between AS3786 and AS38091 is: Provider to Customer where AS3786 is the provider and AS38091 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS18313, AS38091?",
+    "answer": "The relationship between AS18313 and AS38091 is: Provider to Customer where AS38091 is the provider and AS18313 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS17598, AS38091?",
+    "answer": "The relationship between AS17598 and AS38091 is: Provider to Customer where AS38091 is the provider and AS17598 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9318, AS45996?",
+    "answer": "The relationship between AS9318 and AS45996 is: Provider to Customer where AS9318 is the provider and AS45996 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS2603, AS1653?",
+    "answer": "The relationship between AS2603 and AS1653 is: Provider to Customer where AS2603 is the provider and AS1653 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS2603, AS2832?",
+    "answer": "The relationship between AS2603 and AS2832 is: Provider to Customer where AS2603 is the provider and AS2832 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS31133, AS2854?",
+    "answer": "The relationship between AS31133 and AS2854 is: Provider to Customer where AS31133 is the provider and AS2854 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS47445, AS2854?",
+    "answer": "The relationship between AS47445 and AS2854 is: Provider to Customer where AS2854 is the provider and AS47445 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS29076, AS52016?",
+    "answer": "The relationship between AS29076 and AS52016 is: Provider to Customer where AS29076 is the provider and AS52016 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS207375, AS206238?",
+    "answer": "The relationship between AS207375 and AS206238 is: Provider to Customer where AS207375 is the provider and AS206238 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS9049, AS60915?",
+    "answer": "The relationship between AS9049 and AS60915 is: Provider to Customer where AS9049 is the provider and AS60915 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS7195, AS52468?",
+    "answer": "The relationship between AS7195 and AS52468 is: Provider to Customer where AS7195 is the provider and AS52468 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS3170, AS31500?",
+    "answer": "The relationship between AS3170 and AS31500 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS6667, AS1273?",
+    "answer": "The relationship between AS6667 and AS1273 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS39122, AS31500?",
+    "answer": "The relationship between AS39122 and AS31500 is: Peers"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS50113, AS207569?",
+    "answer": "The relationship between AS50113 and AS207569 is: Provider to Customer where AS50113 is the provider and AS207569 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS45049, AS6696?",
+    "answer": "The relationship between AS45049 and AS6696 is: Provider to Customer where AS6696 is the provider and AS45049 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS702, AS4837?",
+    "answer": "The relationship between AS702 and AS4837 is: Provider to Customer where AS702 is the provider and AS4837 is the customer"
+  },
+  {
+    "question": "What is the type of relationship between the following ASes: AS702, AS25213?",
+    "answer": "The relationship between AS702 and AS25213 is: Provider to Customer where AS702 is the provider and AS25213 is the customer"
+  }
+]
