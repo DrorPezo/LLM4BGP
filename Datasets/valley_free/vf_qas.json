@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Is the following path valley-free: 18106 174 53667 397368?",
+    "answer": "The path 18106 174 53667 397368 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 208821 206119 9121 3356 174 27759?",
+    "answer": "The path 208821 206119 9121 3356 174 27759 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 137329 55655 64315 58495?",
+    "answer": "The path 137329 55655 64315 58495 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 2818 3356 8426 6461?",
+    "answer": "The path 2818 3356 8426 6461 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 4657 1299 10103 7540?",
+    "answer": "The path 18106 4657 1299 10103 7540 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 208821 204457 9002 8551?",
+    "answer": "The path 208821 204457 9002 8551 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 2914 174 53667 397368?",
+    "answer": "The path 18106 2914 174 53667 397368 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 4657 9002 3356 174 27759?",
+    "answer": "The path 18106 4657 9002 3356 174 27759 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 34224 3356 174 53667 397368?",
+    "answer": "The path 34224 3356 174 53667 397368 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 39878 8529 1299?",
+    "answer": "The path 39878 8529 1299 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 205012 6894 174?",
+    "answer": "The path 205012 6894 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 23535 174 271253 6939?",
+    "answer": "The path 23535 174 271253 6939 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 53017 27693 10429 18881 3356?",
+    "answer": "The path 53017 27693 10429 18881 3356 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 4657 174 1299 2603?",
+    "answer": "The path 18106 4657 174 1299 2603 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 34224 3356 8551?",
+    "answer": "The path 34224 3356 8551 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 210819 57304 9002?",
+    "answer": "The path 210819 57304 9002 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 37100 174 6453 16509?",
+    "answer": "The path 37100 174 6453 16509 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 48223 6939 200685 24739?",
+    "answer": "The path 48223 6939 200685 24739 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 31673 9044 174?",
+    "answer": "The path 31673 9044 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 20672 50877 39801?",
+    "answer": "The path 20672 50877 39801 is invalid and not valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 4657 4637 1299 174 12389 41034 198774?",
+    "answer": "The path 18106 4657 4637 1299 174 12389 41034 198774 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 39522 39122 174?",
+    "answer": "The path 39522 39122 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 205499 12541 202766?",
+    "answer": "The path 205499 12541 202766 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 327733 37680 3741?",
+    "answer": "The path 327733 37680 3741 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 77 6057 3356?",
+    "answer": "The path 77 6057 3356 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 49788 174 32685?",
+    "answer": "The path 49788 174 32685 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 400113 22652 174?",
+    "answer": "The path 400113 22652 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 34224 6453 3356 61832 28135?",
+    "answer": "The path 34224 6453 3356 61832 28135 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 34224 3356 8529 43766 43766 43766 43766 41176?",
+    "answer": "The path 34224 3356 8529 43766 43766 43766 43766 41176 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 208821 206119 3257 8551?",
+    "answer": "The path 208821 206119 3257 8551 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 396097 271253 174?",
+    "answer": "The path 396097 271253 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 4538 2914 4837 7473 174?",
+    "answer": "The path 4538 2914 4837 7473 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 51086 50928 8359 48858 49673 13094?",
+    "answer": "The path 51086 50928 8359 48858 49673 13094 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 41033 263152 174?",
+    "answer": "The path 41033 263152 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 22652 1299 8551?",
+    "answer": "The path 22652 1299 8551 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 2152 3356 7843 11427 393359?",
+    "answer": "The path 2152 3356 7843 11427 393359 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 4657 1299 6758 33874?",
+    "answer": "The path 18106 4657 1299 6758 33874 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 204881 62275 3356?",
+    "answer": "The path 204881 62275 3356 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 18106 174 59865?",
+    "answer": "The path 18106 174 59865 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 37100 174 59865?",
+    "answer": "The path 37100 174 59865 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 393667 271253 174?",
+    "answer": "The path 393667 271253 174 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 61890 34224 3356?",
+    "answer": "The path 61890 34224 3356 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 208821 206119 9121 1299 9002 133748?",
+    "answer": "The path 208821 206119 9121 1299 9002 133748 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 208821 204457 9121 3356 174 27759?",
+    "answer": "The path 208821 204457 9121 3356 174 27759 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 328797 37468 37721 36924 37613?",
+    "answer": "The path 328797 37468 37721 36924 37613 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 22652 1299 174 8551?",
+    "answer": "The path 22652 1299 174 8551 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 6939 6453 8551?",
+    "answer": "The path 6939 6453 8551 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 34224 3356 174 53667 397368?",
+    "answer": "The path 34224 3356 174 53667 397368 is valid and valley free"
+  },
+  {
+    "question": "Is the following path valley-free: 141190 23764 174 4637 55720 133448 132825 58453 3491?",
+    "answer": "The path 141190 23764 174 4637 55720 133448 132825 58453 3491 is invalid and not a valley free path"
+  },
+  {
+    "question": "Is the following path valley-free: 33763 327983 10798 20459?",
+    "answer": "The path 33763 327983 10798 20459 is invalid and not a valley free path"
+  }
+]

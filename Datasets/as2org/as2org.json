@@ -1,0 +1,500 @@
+{
+  "173": {
+    "Names": ["NTT Network Innovation Laboratories", 
+              "NTT NTLab", 
+              "Nippon Telegraph and Telephone Corporation"],
+    "Sibling ASNs": [
+      "4697",
+      "4710",
+      "55817"
+    ]
+  },
+  "4697": {
+    "Names": ["NTT Network Innovation Laboratories", 
+              "NTT NTLab", 
+              "Nippon Telegraph and Telephone Corporation"],
+    "Sibling ASNs": [
+      "173",
+      "4710",
+      "55817"
+    ]
+  },
+  "4710": {
+    "Names": ["NTT Network Innovation Laboratories", 
+              "NTT NTLab", 
+              "Nippon Telegraph and Telephone Corporation"],
+    "Sibling ASNs": [
+      "173",
+      "4697",
+      "55817"
+    ]
+  },
+  "55817": {
+    "Names": ["NTT Network Innovation Laboratories",
+              "NTT NTLab", 
+              "Nippon Telegraph and Telephone Corporation"],
+    "Sibling ASNs": [
+      "173",
+      "4697",
+      "4710"
+    ]
+  },
+  "9514": {
+    "Status": "matched",
+    "Names": ["Telstra Corporation Ltd", 
+      "Telstra Limited", 
+      "Telstra Purple Hosting Services", 
+      "Belong (Telstra Limited)",
+      "Telstra CIR (Telstra Limited)", 
+      "Telstra Corporation Limited",
+      "Telstra Limited",
+      "Telstra Managed Network Services",
+      "Telstra UC MAPS Network (Telstra Limited)",
+      "Telstra Limited"
+    ],
+    "Sibling ASNs": [      
+      "1221",
+      "37978",
+      "132029",
+      "132292",
+      "135887",
+      "133859",
+      "135313",
+      "150689",
+      "141886",
+      "135052",
+      "135083",
+      "4632",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "1221": {
+    "Names": ["Telstra Corporation Ltd", 
+              "Telstra Limited", 
+              "Telstra Purple Hosting Services", 
+              "Belong (Telstra Limited)",
+              "Telstra CIR (Telstra Limited)", 
+              "Telstra Corporation Limited",
+              "Telstra Limited",
+              "Telstra Managed Network Services",
+              "Telstra UC MAPS Network (Telstra Limited)",
+              "Telstra Limited"
+            ],
+    "Sibling ASNs": [
+      "37978",
+      "132029",
+      "132292",
+      "135887",
+      "133859",
+      "135313",
+      "150689",
+      "141886",
+      "135052",
+      "135083",
+      "4632",
+      "9514",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "132029": {
+    "Names": ["Telstra Corporation Ltd", 
+              "Telstra Limited", 
+              "Telstra Purple Hosting Services", 
+              "Belong (Telstra Limited)",
+              "Telstra CIR (Telstra Limited)", 
+              "Telstra Corporation Limited",
+              "Telstra Limited",
+              "Telstra Managed Network Services",
+              "Telstra UC MAPS Network (Telstra Limited)",
+              "Telstra Limited"
+            ],
+    "Sibling ASNs": [
+      "37978",
+      "1221",
+      "132292",
+      "135887",
+      "133859",
+      "135313",
+      "150689",
+      "141886",
+      "135052",
+      "135083",
+      "4632",
+      "9514",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "132292": {
+    "Names": ["Telstra Corporation Ltd", 
+              "Telstra Limited", 
+              "Telstra Purple Hosting Services", 
+              "Belong (Telstra Limited)",
+              "Telstra CIR (Telstra Limited)", 
+              "Telstra Corporation Limited",
+              "Telstra Limited",
+              "Telstra Managed Network Services",
+              "Telstra UC MAPS Network (Telstra Limited)",
+              "Telstra Limited"
+            ],
+    "Sibling ASNs": [
+      "37978",
+      "1221",
+      "132029",
+      "135887",
+      "133859",
+      "135313",
+      "150689",
+      "141886",
+      "135052",
+      "135083",
+      "4632",
+      "9514",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "133859": {
+    "Names": ["Telstra Corporation Ltd", 
+              "Telstra Limited", 
+              "Telstra Purple Hosting Services", 
+              "Belong (Telstra Limited)",
+              "Telstra CIR (Telstra Limited)", 
+              "Telstra Corporation Limited",
+              "Telstra Limited",
+              "Telstra Managed Network Services",
+              "Telstra UC MAPS Network (Telstra Limited)",
+              "Telstra Limited"
+            ],
+    "Sibling ASNs": [
+      "37978",
+      "1221",
+      "132859",
+      "135887",
+      "133859",
+      "135313",
+      "150689",
+      "141886",
+      "135052",
+      "135083",
+      "4632",
+      "9514",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "135313": {
+    "Names": ["Telstra Corporation Ltd", 
+              "Telstra Limited", 
+              "Telstra Purple Hosting Services", 
+              "Belong (Telstra Limited)",
+              "Telstra CIR (Telstra Limited)", 
+              "Telstra Corporation Limited",
+              "Telstra Limited",
+              "Telstra Managed Network Services",
+              "Telstra UC MAPS Network (Telstra Limited)",
+              "Telstra Limited"
+            ],
+    "Sibling ASNs": [
+      "37978",
+      "1221",
+      "132292",
+      "135887",
+      "133859",
+      "150689",
+      "141886",
+      "135052",
+      "135083",
+      "4632",
+      "9514",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "141886": {
+    "Names": ["Telstra Corporation Ltd", 
+              "Telstra Limited", 
+              "Telstra Purple Hosting Services", 
+              "Belong (Telstra Limited)",
+              "Telstra CIR (Telstra Limited)", 
+              "Telstra Corporation Limited",
+              "Telstra Limited",
+              "Telstra Managed Network Services",
+              "Telstra UC MAPS Network (Telstra Limited)",
+              "Telstra Limited"
+            ],
+    "Sibling ASNs": [
+      "37978",
+      "1221",
+      "132292",
+      "135887",
+      "133859",
+      "135313",
+      "150689",
+      "135052",
+      "135083",
+      "4632",
+      "9514",
+      "133931",
+      "135599",
+      "149288"
+    ]
+  },
+  "58793": {
+    "Names": ["FUJITSU LIMITED", "Fujitsu Limited", "Fujitsu Limited AS58793", "FUJITSU LIMITED"],
+    "Sibling ASNs": []
+  },
+  "18089": {
+    "Names": ["KDDI", "KDDI (former POWEREDCOM)", "KDDI CORPORATION", "KDDI CORPORATION"],
+    "Sibling ASNs": [
+      "2516",
+      "4716",
+      "9996"
+    ]
+  },
+  "2516": {
+    "Names": ["KDDI", "KDDI (former POWEREDCOM)", "KDDI CORPORATION", "KDDI CORPORATION"],
+    "Sibling ASNs": [
+      "18089",
+      "4716",
+      "9996"
+    ]
+  },
+  "4716": {
+    "Names": ["KDDI", "KDDI (former POWEREDCOM)", "KDDI CORPORATION", "KDDI CORPORATION"],
+    "Sibling ASNs": [
+      "18089",
+      "2516",
+      "9996"
+    ]
+  },
+  "9996": {
+    "Names": ["KDDI", "KDDI (former POWEREDCOM)", "KDDI CORPORATION", "KDDI CORPORATION"],
+    "Sibling ASNs": [
+      "18089",
+      "2516",
+      "4716"
+    ]
+  },
+  "9600": {
+    "Names": ["So-net Corporation (bit-drive)", "Sony Network Communications Inc."],
+    "Sibling ASNs": []
+  },
+  "133124": {
+    "Names": ["Network For Learning - Spark Digital New Zealand",
+              "Spark New Zealand Trading Limited",
+              "Spark New Zealand Trading Ltd.",
+              "Spark Ventures",
+              "Network for Learning",
+              "SPark Digital Service Delivery Platform,",
+              "Spark Digital New Zealand Ltd",
+              "Spark New Zealand Trading Ltd"],
+    "Sibling ASNs": [
+      "133420",
+      "133473",
+      "2569",
+      "2570",
+      "38485",
+      "4648",
+      "4771",
+      "55936",
+      "9325"
+    ]
+  },
+  "133420": {
+    "Names": ["Network For Learning - Spark Digital New Zealand",
+              "Spark New Zealand Trading Limited",
+              "Spark New Zealand Trading Ltd.",
+              "Spark Ventures",
+              "Network for Learning",
+              "SPark Digital Service Delivery Platform,",
+              "Spark Digital New Zealand Ltd",
+              "Spark New Zealand Trading Ltd"],
+    "Sibling ASNs": [
+      "133124",
+      "133473",
+      "2569",
+      "2570",
+      "38485",
+      "4648",
+      "4771",
+      "55936",
+      "9325"
+    ]
+  },
+  "133473": {
+        "Names": ["Network For Learning - Spark Digital New Zealand",
+              "Spark New Zealand Trading Limited",
+              "Spark New Zealand Trading Ltd.",
+              "Spark Ventures",
+              "Network for Learning",
+              "SPark Digital Service Delivery Platform,",
+              "Spark Digital New Zealand Ltd",
+              "Spark New Zealand Trading Ltd"],
+    "Sibling ASNs": [
+      "133124",
+      "133420",
+      "2569",
+      "2570",
+      "38485",
+      "4648",
+      "4771",
+      "55936",
+      "9325"
+    ]
+  },
+  "2569": {
+    "Names": ["Network For Learning - Spark Digital New Zealand",
+              "Spark New Zealand Trading Limited",
+              "Spark New Zealand Trading Ltd.",
+              "Spark Ventures",
+              "Network for Learning",
+              "SPark Digital Service Delivery Platform,",
+              "Spark Digital New Zealand Ltd",
+              "Spark New Zealand Trading Ltd"],
+    "Sibling ASNs": [
+      "133124",
+      "133420",
+      "133473",
+      "2570",
+      "38485",
+      "4648",
+      "4771",
+      "55936",
+      "9325"
+    ]
+  },
+  "3786": {
+    "Names": ["LG DACOM Corporation", "LG DACOM Corporation", "LG Uplus Corp.", "LG DACOM Corporation"],
+    "Sibling ASNs": [
+      "4753",
+      "9688"
+    ]
+  },
+  "15389": {
+    "Names": ["P/F Telefonverkid"],
+    "Sibling ASNs": []
+  },
+  "3209": {
+    "Names": ["Vodafone GmbH", "VODANET"],
+    "Sibling ASNs": ["3211"]
+  },
+  "12695": {
+    "Names": ["LLC Digital Network", "DINET-AS", "DINET-PROTECT-AS", "BURANTEL-AS"],
+    "Sibling ASNs": [
+                     "201186", 
+                     "203747"
+                    ]
+  },
+  "198959": {
+    "Names": ["Radware Ltd", "Radware", "radware"],
+    "Sibling ASNs": [
+                     "48851", 
+                     "213232"
+                    ]
+  },
+  "1273": {
+    "Names": ["Vodafone Group PLC"],
+    "Sibling ASNs": []
+  },
+  "8551":{
+    "Names": ["Bezeq International Ltd.", "BEZEQ-INTERNATIONAL-LTD."],
+    "Sibling ASNs": ["8203"]
+  },
+  "1680":{
+    "Names": ["Cellcom Fixed Line Communication L.P", "CELLCOM-AS", "NV-ASN", "Barak", "Cellcom-ASN"],
+    "Sibling ASNs": ["13264", "9117", "8584", "38992"]
+  },
+  "11014":{
+    "Names": ["CPS"],
+    "Sibling ASNs": []
+  },
+  "6762":{
+    "Names": ["Telecom Italia S.p.A.", "SEABONE-NET"],
+    "Sibling ASNs": []
+  },
+  "8151":{
+    "Names": ["UNINET"],
+    "Sibling ASNs": ["28550", "28513", "28412", "265513", "265514", "265512", "28413"]
+  },
+  "9957":{
+    "Names": ["KINX", "KINX-AS", "KINXIDC-AS-KR"],
+    "Sibling ASNs": ["9286", "17604"]
+  },
+  "9269":{
+    "Names": ["HKBN-AS", "HKBN-AS-AP", "Hong Kong Broadband Network Limited"],
+    "Sibling ASNs": ["10103", "133849"]
+  },
+  "8452":{
+    "Names": ["TE-AS"],
+    "Sibling ASNs": []
+  },
+  "9121":{
+    "Names": ["TTNet","Turk Telekomunikasyon Anonim Sirketi"],
+    "Sibling ASNs": []
+  },
+  "23487":{
+    "Names": ["CONECEL"],
+    "Sibling ASNs": []
+  },
+  "25184":{
+    "Names": ["Afranet", "AFRANET"],
+    "Sibling ASNs": []
+  },
+  "8396":{
+    "Names": ["TEE-GR", "Technical Chamber of Greece"],
+    "Sibling ASNs": []
+  },
+  "24655":{
+    "Names": ["BOC-AS", "BANK OF CYPRUS PUBLIC COMPANY LIMITED"],
+    "Sibling ASNs": []
+  },
+  "6866":{
+    "Names": ["CYTA-NETWORK", "CYTA-CORE-NETWORK", "CYTA-MOBILE-NETWORK", "Cyprus Telecommunications Authority"],
+    "Sibling ASNs": ["41657", "212875"]
+  },
+  "3303":{
+    "Names": ["Swisscom (Schweiz) AG", "swisscom", "SWISSCOM"],
+    "Sibling ASNs": ["6837", "8300", "21273", "202088", "205762"]
+  },
+  "12736":{
+    "Names": ["Israel Airports Authority"],
+    "Sibling ASNs": []
+  },
+  "50454":{
+    "Names": ["EL AL ISRAEL AIRLINES Ltd", "ELAL-AS", "EL AL", "EL-AL"],
+    "Sibling ASNs": []
+  },
+  "198114":{
+    "Names": ["Bank Leumi le-Israel B.M.", "Leumi", "Bank Leumi"],
+    "Sibling ASNs": []
+  },
+  "43381":{
+    "Names": ["Israel Ministry Of Defence", "MOD-AS"],
+    "Sibling ASNs": []
+  },
+  "7473":{
+    "Names": ["Singapore Telecommunications (SINGTEL Internet Exchange)", "Singapore Telecommunications", "SINGTEL"],
+    "Sibling ASNs": ["7700", "10140", "24493", "38612"]
+  },
+  "6830":{
+    "Names": ["Liberty Global B.V.", "LibertyGlobal", "Liberty Global"],
+    "Sibling ASNs": ["59776", "31079", "24643"]
+  },
+  "36994":{
+    "Names": ["Vodacom", "Vodacom-VB", "Vodacom-VB-ZA"],
+    "Sibling ASNs": ["29975", "37311"]
+  },
+  "21013":{
+    "Names": ["eww ag", "ITANDTEL", "ITANDTEL-AS"],
+    "Sibling ASNs": ["3330", "61108"]
+  }
+}

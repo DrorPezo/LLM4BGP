@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Is the following IP Address a bogon:63.163.128.0/17?",
+    "answer": "The prefix 63.163.128.0/17 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:160.30.202.0/24?",
+    "answer": "The prefix 160.30.202.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:194.68.192.0/18?",
+    "answer": "The prefix 194.68.192.0/18 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.227.156.0/22?",
+    "answer": "The prefix 103.227.156.0/22 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:68.117.88.116/30?",
+    "answer": "The prefix 68.117.88.116/30 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:193.101.170.128/25?",
+    "answer": "The prefix 193.101.170.128/25 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.31.60.0/24?",
+    "answer": "The prefix 203.31.60.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.124.158.0/23?",
+    "answer": "The prefix 103.124.158.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:129.96.112.0/20?",
+    "answer": "The prefix 129.96.112.0/20 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.109.10.0/23?",
+    "answer": "The prefix 103.109.10.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.33.179.0/24?",
+    "answer": "The prefix 203.33.179.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:151.8.0.0/14?",
+    "answer": "The prefix 151.8.0.0/14 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:212.191.128.0/18?",
+    "answer": "The prefix 212.191.128.0/18 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.249.216.0/22?",
+    "answer": "The prefix 103.249.216.0/22 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.144.242.0/23?",
+    "answer": "The prefix 103.144.242.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:173.60.0.0/14?",
+    "answer": "The prefix 173.60.0.0/14 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:192.65.248.0/24?",
+    "answer": "The prefix 192.65.248.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.32.34.0/23?",
+    "answer": "The prefix 203.32.34.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.26.111.0/24?",
+    "answer": "The prefix 203.26.111.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:125.167.96.0/19?",
+    "answer": "The prefix 125.167.96.0/19 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.14.247.0/24?",
+    "answer": "The prefix 203.14.247.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:202.36.208.0/24?",
+    "answer": "The prefix 202.36.208.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.30.142.0/24?",
+    "answer": "The prefix 203.30.142.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:206.56.0.0/13?",
+    "answer": "The prefix 206.56.0.0/13 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.188.116.0/23?",
+    "answer": "The prefix 103.188.116.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.19.62.0/23?",
+    "answer": "The prefix 203.19.62.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.23.193.0/24?",
+    "answer": "The prefix 203.23.193.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.55.213.0/24?",
+    "answer": "The prefix 203.55.213.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.34.178.0/23?",
+    "answer": "The prefix 203.34.178.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.55.154.0/24?",
+    "answer": "The prefix 203.55.154.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:137.201.0.0/16?",
+    "answer": "The prefix 137.201.0.0/16 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:192.103.42.0/23?",
+    "answer": "The prefix 192.103.42.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:168.44.200.0/21?",
+    "answer": "The prefix 168.44.200.0/21 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:181.171.40.0/21?",
+    "answer": "The prefix 181.171.40.0/21 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:202.33.100.64/28?",
+    "answer": "The prefix 202.33.100.64/28 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.8.108.0/24?",
+    "answer": "The prefix 203.8.108.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.15.24.0/21?",
+    "answer": "The prefix 203.15.24.0/21 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:143.241.95.224/27?",
+    "answer": "The prefix 143.241.95.224/27 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:70.0.0.0/9?",
+    "answer": "The prefix 70.0.0.0/9 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:34.0.0.0/8?",
+    "answer": "The prefix 34.0.0.0/8 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.33.5.0/24?",
+    "answer": "The prefix 203.33.5.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:153.80.10.0/24?",
+    "answer": "The prefix 153.80.10.0/24 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:220.12.232.0/21?",
+    "answer": "The prefix 220.12.232.0/21 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:34.224.0.0/11?",
+    "answer": "The prefix 34.224.0.0/11 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:43.241.100.0/22?",
+    "answer": "The prefix 43.241.100.0/22 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:203.17.155.0/24?",
+    "answer": "The prefix 203.17.155.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:103.116.111.0/24?",
+    "answer": "The prefix 103.116.111.0/24 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:160.19.108.0/23?",
+    "answer": "The prefix 160.19.108.0/23 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:26.28.216.0/21?",
+    "answer": "The prefix 26.28.216.0/21 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:188.228.0.0/14?",
+    "answer": "The prefix 188.228.0.0/14 is non-bogon"
+  }
+]

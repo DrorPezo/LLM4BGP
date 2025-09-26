@@ -1,0 +1,202 @@
+[
+  {
+    "question": "Is the following IP Address a bogon:2604:7c48::/29?",
+    "answer": "The prefix 2604:7c48::/29 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2606:e420::/27?",
+    "answer": "The prefix 2606:e420::/27 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:21d5:e7ea:4844::/46?",
+    "answer": "The prefix 21d5:e7ea:4844::/46 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2127:adb6:3f54:d000::/55?",
+    "answer": "The prefix 2127:adb6:3f54:d000::/55 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:22ce:1d70:c3c0::/43?",
+    "answer": "The prefix 22ce:1d70:c3c0::/43 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2405:8382::/31?",
+    "answer": "The prefix 2405:8382::/31 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2620:125:b400::/38?",
+    "answer": "The prefix 2620:125:b400::/38 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:24fd:716b::/34?",
+    "answer": "The prefix 24fd:716b::/34 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df3:1708::/45?",
+    "answer": "The prefix 2001:df3:1708::/45 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2400:8fa1::/32?",
+    "answer": "The prefix 2400:8fa1::/32 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:21bf:7a4a:8470::/44?",
+    "answer": "The prefix 21bf:7a4a:8470::/44 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2b13:4f9e:8000::/33?",
+    "answer": "The prefix 2b13:4f9e:8000::/33 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2a4a:d76c:fcc9:9c00::/56?",
+    "answer": "The prefix 2a4a:d76c:fcc9:9c00::/56 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2449:6de5:4a70::/44?",
+    "answer": "The prefix 2449:6de5:4a70::/44 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df5:be20::/43?",
+    "answer": "The prefix 2001:df5:be20::/43 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2401:8761::/32?",
+    "answer": "The prefix 2401:8761::/32 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2404:d960::/27?",
+    "answer": "The prefix 2404:d960::/27 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2a9a:8f93:e86f:12c0::/64?",
+    "answer": "The prefix 2a9a:8f93:e86f:12c0::/64 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2620:5a:6200::/39?",
+    "answer": "The prefix 2620:5a:6200::/39 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:205d:a8ef::/32?",
+    "answer": "The prefix 205d:a8ef::/32 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2208:1646:5f2c:1138::/61?",
+    "answer": "The prefix 2208:1646:5f2c:1138::/61 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:21d5:e60f:5429::/48?",
+    "answer": "The prefix 21d5:e60f:5429::/48 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2af9:d809:4000::/34?",
+    "answer": "The prefix 2af9:d809:4000::/34 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2999:b71c:c480::/42?",
+    "answer": "The prefix 2999:b71c:c480::/42 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2801:1f:8100::/40?",
+    "answer": "The prefix 2801:1f:8100::/40 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:23e8:798e:3800::/37?",
+    "answer": "The prefix 23e8:798e:3800::/37 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:206f:4657:a400::/39?",
+    "answer": "The prefix 206f:4657:a400::/39 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2c4c:f25e:febe:aa50::/60?",
+    "answer": "The prefix 2c4c:f25e:febe:aa50::/60 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df7:b840::/42?",
+    "answer": "The prefix 2001:df7:b840::/42 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2801:c4:8::/45?",
+    "answer": "The prefix 2801:c4:8::/45 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df2:1a90::/44?",
+    "answer": "The prefix 2001:df2:1a90::/44 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:22ae:2789:5400::/41?",
+    "answer": "The prefix 22ae:2789:5400::/41 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2038:5867:bb28::/46?",
+    "answer": "The prefix 2038:5867:bb28::/46 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:26ac:eb7a:8000::/34?",
+    "answer": "The prefix 26ac:eb7a:8000::/34 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2931:e64d:35bf:5c00::/54?",
+    "answer": "The prefix 2931:e64d:35bf:5c00::/54 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2801:15:5900::/40?",
+    "answer": "The prefix 2801:15:5900::/40 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2402:b844::/30?",
+    "answer": "The prefix 2402:b844::/30 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2801:80:22d8::/45?",
+    "answer": "The prefix 2801:80:22d8::/45 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2bfb:8869::/36?",
+    "answer": "The prefix 2bfb:8869::/36 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df3:1d44::/46?",
+    "answer": "The prefix 2001:df3:1d44::/46 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2402:3141::/32?",
+    "answer": "The prefix 2402:3141::/32 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2404:e610::/28?",
+    "answer": "The prefix 2404:e610::/28 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:20ae:e57b:9d97:c000::/52?",
+    "answer": "The prefix 20ae:e57b:9d97:c000::/52 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df5:9c48::/45?",
+    "answer": "The prefix 2001:df5:9c48::/45 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2607:cf50::/28?",
+    "answer": "The prefix 2607:cf50::/28 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2001:df5:c481::/48?",
+    "answer": "The prefix 2001:df5:c481::/48 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:21cb:62b9:6b5a:8bee::/64?",
+    "answer": "The prefix 21cb:62b9:6b5a:8bee::/64 is non-bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2403:adc8::/29?",
+    "answer": "The prefix 2403:adc8::/29 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2606:f7d0::/28?",
+    "answer": "The prefix 2606:f7d0::/28 is bogon"
+  },
+  {
+    "question": "Is the following IP Address a bogon:2401:8c02::/31?",
+    "answer": "The prefix 2401:8c02::/31 is bogon"
+  }
+]
