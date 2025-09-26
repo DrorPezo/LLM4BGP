@@ -1,0 +1,247 @@
+as_rels_context: |-
+  The relationship between two ASes can be: Provider to Customer, Customer to Provider, Peer to Peer or Siblings.
+
+as_rels_correctness_prompt: |-
+  You are a strict evaluator for Autonomous System (AS) class type classification.
+  Your task is to determine whether the AS relationship mentioned in the LLM answer correctly matches the ground truth label.
+
+  There are 4 AS relationships types:
+  - provider to Customer      (p2c)
+  - customer to Provider      (c2p)
+  - Peers                     (p2p)
+  - Sibling                   (sib)
+
+  A match should be labeled as '1' if the LLM answer refers to the same AS relationship type as the ground truth, even if the wording differs slightly (e.g., "Provider to Customer" vs. "p2c", or "Peer to Peer" vs. "P2P").
+  Otherwise, label it as '0'.
+
+  Do not provide any explanation. Output only the label.
+  Your response must be one of:
+  - '1' — if the predicted AS class type is correct.
+  - '0' — if it is incorrect.
+
+  Examples:
+
+  LLM answer: "p2c"
+  Ground Truth: "Provider to Customer"
+  Output: 1
+
+  LLM answer: "Customer-to-Provider"
+  Ground Truth: "Peers"
+  Output: 0
+
+  LLM answer: "sibling"
+  Ground Truth: "sibling"
+  Output: 1
+
+  LLM answer: "Customer-to-Provider"
+  Ground Truth: "Siblings"
+  Output: 0
+
+  LLM answer: "Content"
+  Ground Truth: "Peers"
+  Output: 0
+
+  LLM answer: {llm_answer}
+  Ground Truth: {ground_truth}
+  Output:
+  
+as_rels_hall_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant must answer the routing relationship between the two Autonomous Systems (ASes), chosen
+  from the list below (case-insensitive, surrounding quotes optional, no extra
+  words):**
+
+    • provider to Customer      (p2c)
+    • customer to Provider      (c2p)
+    • Peers                     (p2p)
+    • Sibling                   (sib)
+
+  The abbreviations in parentheses are also acceptable tokens.
+  Any other format (multiple words, additional punctuation, prefixes such as
+  “Type:”, explanatory clauses, numbers, etc.) is disallowed.  Using upper- or
+  lower-case does **not** constitute a hallucination.
+
+  Classify an assistant_answer as a hallucination **iff** it is **not** exactly
+  one valid token from the list above after trimming whitespace, collapsing
+  consecutive spaces, converting to lower-case, and (if present) stripping a
+  single pair of surrounding quotes.
+
+  Return **"1"** if **NO** hallucination exists (the answer is one valid token,
+  even if it states the wrong relationship).
+  Return **"0"** if at least one hallucination exists.
+  Output only the digit.
+
+  Examples
+  Input: p2c
+  Output: 1
+
+  Input: "peers"
+  Output: 1
+
+  Input: Customer to Provider
+  Output: 1
+
+  Input: "Peers"
+  Output: 1
+
+  Input: Customer-to-Provider
+  Output: 1
+
+  Input: sibling (same org)
+  Output: 1
+
+  Input: "sibling"
+  Output: 1
+
+  Input: "P2P"
+  Output: 0
+
+  Input: 123
+  Output: 0
+
+  Input: <relationship>
+  Output: 0
+
+direct_task_prompt_as_rel: |-
+  Using the following format, answer the following question without any other information:
+  <relationship>, where <relationship> is the relationship between the ASes. The relationship can be: Provider to Customer, Customer to Provider, Peer to Peer or Siblings.
+  Question:
+
+role_based_prompt_as_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your task is to determine the relationship between two ASes based on the provided context or question.
+   You must choose exactly one of the following relationship types:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <relationship>, where <relationship> is the relationship between the ASes. The relationship can be: Provider to Customer, Customer to Provider, Peer to Peer or Siblings.
+  Question:
+
+multi_step_reasoning_prompt_as_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or external search.
+  Your task is to determine the relationship between two ASes based on the provided context or question.
+
+  Your task is to determine the relationship between two ASes based on the provided context or question.
+   Given a question about the relationship between two Autonomous Systems (ASes), follow these steps to infer the relationship:
+  1. **Identify the AS roles**: Determine if one AS appears to provide transit for the other (e.g., larger AS, Tier 1, upstream connectivity) or if both seem to exchange traffic symmetrically.
+  2. **Analyze directionality and dependence**: Check if one AS depends on the other for upstream internet access, or if they serve similar roles and peer at exchange points.
+  3. **Match to relationship type**: Based on your analysis, map the interaction to one of the following relationship types:
+    - **Provider to Customer**
+    - **Customer to Provider**
+    - **Peer to Peer**
+    - **Siblings**
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <relationship>, where <relationship> is the relationship between the ASes. The relationship can be: Provider to Customer, Customer to Provider, Peer to Peer or Siblings.
+  Question:
+
+few_shots_prompt_as_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your task is to infer the relationship between them. The relationship can be one of the following:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Answer only with the relationship type. Do not include any explanation.
+
+  Examples:
+
+  Q: What is the relationship between AS7018 and AS174?
+  A: Customer to Provider
+
+  Q: What is the relationship between AS1299 and AS10010?
+  A: Peer to Peer
+
+  Q: What is the relationship between AS3356 and AS3549?
+  A: Siblings
+
+  Using the following format, answer the following question without any other information:
+  <relationship>, where <relationship> is the relationship between the ASes. The relationship can be: Provider to Customer, Customer to Provider, Peer to Peer or Siblings.
+  Question:
+
+cot_prompt_as_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your task is to infer the relationship between them. The relationship can be one of the following:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  When given a question about the relationship between two ASes, think step by step to identify the most likely relationship. 
+  Consider attributes such as transit dependence, network size, typical roles in the internet hierarchy, and known peering behaviors.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Finally, answer only with the relationship type. Do not include your reasoning in the output.
+  Using the following format, answer the following question without any other information:
+  <relationship>, where <relationship> is the relationship between the ASes. The relationship can be: Provider to Customer, Customer to Provider, Peer to Peer or Siblings.
+  Question:
+
+react_prompt_as_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference.
+  Your mission is to infer the relationship between two given ASes with ASNs of ASN1 and ASN2.
+  The relationships can be from the following: 
+
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+
+  ==============  TOOLS  ==============
+  1. as_rank - returns the rank of an AS according CAIDA AS rank DB.
+     - Input: ASN(int)
+     - Output: AS rank (int)
+  2. as_cone_size - returns the customer-cone size of an AS.
+     - Input: ASN(int)
+     - Output: Customer-cone size (int)
+  3. as_imports_with_other_asn - Returns the import rules of asn1 with asn2.
+     - Input: asn1 (int), asn2 (int)
+     - Output: imports (list of dicts)
+  4. as_exports_with_other_asn - Returns the export rules of asn1 with asn2.
+     - Input: asn1 (int), asn2 (int)
+     - Output: exports (list of dicts)
+
+  ============  HARD RULES  ============
+  1. Invoke each of the above tool ONLY ONCE.
+  2. Run the tools: as_rank, as_cone_size once for each ASN, and compare the ranks and the cone sizes of the ASes.
+  3. Run the tools: as_imports_with_other_asn, as_exports_with_other_asn to find the routing flow between the ASes.
+  4. After you infer the final Observation:
+     • Write **no further Thoughts**.
+     • Make **no further tool calls**.
+     • Respond with **one single line**, exactly, only with one relationship:
+       <Provider-Customer | Coustomer-Provider | Peers>
+     • Do not explain your reasoning or add any further thoughts.
+  5. If the user’s request is *not* “Write down the AS type of {asn} …”, reply:
+     I cannot help with that.

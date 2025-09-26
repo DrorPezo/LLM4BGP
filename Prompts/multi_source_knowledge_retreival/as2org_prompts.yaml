@@ -1,0 +1,216 @@
+as2org_context: |-
+  In Internet topology analysis, AS2ORG refers to the mapping between ASes and the organizations that own or operate them. 
+  Many organizations control multiple ASes — for example, large telecom providers, CDNs, or multinationals may use distinct ASNs for different regions, services, or legacy acquisitions. 
+  To reason accurately about network influence or detect aggregation patterns, it's often necessary to group ASNs by organization and treat them as a single entity.
+  The task is to determine the organization which owns the AS and perform the mapping between the ASN and the organization's name.
+
+as2org_correctness_prompt: |-
+  You are a strict evaluator for semantic similarity.
+  Your task is to determine whether the organization name provided in the LLM answer refers to the same entity as the one in the ground truth.
+
+  The match should be labeled as '1' if both names refer to the same organization, even if they are phrased differently, abbreviated, or contain minor format differences (e.g., "Google" vs. "Google LLC" or "Amazon" vs. "Amazon Inc.").
+  Otherwise, label it as '0'.
+
+  Do not provide any explanation. Output only the label.
+  Your response must be one of:
+  - '1' — if the two names refer to the same organization.
+  - '0' — if they do not.
+
+  Examples:
+
+  LLM answer: "Amazon"
+  Ground Truth: "Amazon Inc."
+  Output: 1
+
+  LLM answer: "Alphabet Inc."
+  Ground Truth: "Google"
+  Output: 1
+
+  LLM answer: "Meta Platforms"
+  Ground Truth: "Facebook"
+  Output: 1
+
+  LLM answer: "Amazon"
+  Ground Truth: "Alibaba"
+  Output: 0
+
+  LLM answer: "Microsoft Corp."
+  Ground Truth: "Apple"
+  Output: 0
+
+  LLM answer: {llm_answer}
+  Ground Truth: {ground_truth}
+  Output:
+  
+as2org_hall_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant is expected to answer with exactly one token:
+  the name of the single organisation that owns the Autonomous System (AS) in
+  question.  The organisation name may contain letters, digits, spaces and common
+  company suffixes such as “Inc.”, “Ltd.”, “LLC.”, or explanatory parentheses
+  (e.g. *Google LLC*, *Colegio Nacional (NIC.mx)*). Pay attention that the name can include
+  special signs, for example - AT&T.
+  Surrounding quotes are optional.  Any other content (multiple names, line-
+  breaks, extra commentary, prefixes like “Org:”, or trailing clauses that name a
+  second entity) is disallowed. 
+
+  Classify an assistant_answer as a hallucination **iff** it is **not** exactly
+  one valid organisation name after trimming whitespace and (if present) stripping
+  a single pair of surrounding quotes.
+
+  Return **"1"** if **NO** hallucination exists (the answer is a single
+  organisation name string, even if it is numerically or semantically incorrect).
+  Return **"0"** if at least one hallucination exists.
+  Output only the digit.
+
+  Examples
+  Input: Google LLC
+  Output: 1
+
+  Input: "Amazon.com Inc."
+  Output: 1
+
+  Input: "AT&T"
+  Output: 1
+
+  Input: Google LLC (Alphabet)
+  Output: 1
+
+  Input: Org: Cloudflare Inc.
+  Output: 1
+
+  Input: Google LLC / Alphabet Inc.
+  Output: 0
+
+  Input: Amazon.com Inc. and AWS EMEA SARL
+  Output: 0
+
+  Input: <organisation-name>
+  Output: 0
+
+direct_task_prompt_as2org: |-
+  Given a ASN of an AS, your task is to determine the organization which owns the AS.
+  Using the following format, answer the following question without any other information:
+  <organization name>, where <organization name> is the name of the organization which owns the AS.
+  Question:
+
+role_based_prompt_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Given a ASN of an AS, your task is to determine the organization which owns the AS.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the organization's name; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <organization name>, where <organization name> is the name of the organization which owns the AS.
+  Question:
+
+multi_step_reasoning_prompt_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Given a ASN of an AS, your task is to determine the organization which owns the AS.
+
+  Follow these steps:
+  1. Look up the ASN data based on your own memory or knowledge. 
+  2. Find the associated organization name that is registered as the owner or operator of the ASN, based on your own memory or knowledge.
+  3. Respond with the full name of the organization.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the organization's name; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <organization name>, where <organization name> is the name of the organization which owns the AS.
+  Question:
+
+few_shot_prompt_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Given a ASN of an AS, your task is to determine the organization which owns the AS.
+
+  For exaple:
+
+  ASN: 15169  
+  Answer: Google LLC
+
+  ASN: 16509  
+  Answer: Amazon.com, Inc.
+
+  ASN: 20940  
+  Answer: Akamai International B.V.
+
+  ASN: 8075  
+  Answer: Microsoft Corporation
+
+  ASN: 4766  
+  Answer: Korea Telecom
+
+  ASN: 701  
+  Answer: Verizon Business
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the organization's name; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <organization name>, where <organization name> is the name of the organization which owns the AS.
+  Question:
+
+cot_prompt_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Given a ASN of an AS, your task is to determine the organization which owns the AS.
+
+  Make the reasoning step-by-step and provide only the organization name as the final answer.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the organization's name; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <organization name>, where <organization name> is the name of the organization which owns the AS.
+  Question:
+
+as2org_react_prompt: |-
+  You are a network analyst with deep expertise in Internet routing and Autonomous-System (AS) topology.  
+  Your task is to find the organization's name which owns a given AS.
+  You can use only the following tool:  
+  1. as2org - performs as2org according CAIDA datasets.
+    - Input: ASN (int)
+    – Output: organization name (str) - the official registered organization for the given AS, with **no extra words**
+  2. pdb_as2org - performs as2org according PeeringDB database.
+    - Input: Organization name (str)
+    - Output: List of ASNs (int)
+  Run the above tools in serial to perform as2org according the two different tools.
+  After that, make a reasoning and returns the organization's name.
+  
+  ================  HARD RULES  ================
+  1. Use as2org tool to find the organization's name according CAIDA datasets, and pdb_as2org to find the organization's name according PeeringDB database.
+  2. After you receive the organization's names, check whether they refers to the same organization. 
+  3. Pay attention that sometimes the names can be similar but not identical. You have to understand wheather the names refers to the same entity.
+  4. If the organization's names are similar, return one of them.
+  5. If they are not identical, try to run the tools one more time.
+  6. If they still not identical, return the organization's name according PeeringDB .
+  7. If the ASN is not found in one database, return the name as it found in the other database.
+  7. If the ASN is not found in both databases, return -1.
+  8. After you receive the **Observation**, do **not** write any further Thoughts and do **not** call another tool.  
+      Instead, reply with **one single line** formatted exactly as:  <organization name>
+      Do not add any additional information.
+  9. If the user's request is **not** about mapping an AS to an organization, reply with:  
+      I cannot help with that.
+  10. Never output anything that violates the formats above.
+  11. You must use the two tools to answer the question.

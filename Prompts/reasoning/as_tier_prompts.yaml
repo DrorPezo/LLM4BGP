@@ -1,0 +1,224 @@
+as_tier_context: |-
+  The AS tier is a classification of Autonomous Systems (ASes) based on their size and importance in the global routing hierarchy.
+  Tier-1 ASes are the largest and most important ASes, Tier-2 ASes are the second largest and most important ASes, and Tier-3 ASes are the smallest and least important ASes.
+
+as_tiers_correctness_prompt: |-
+  You are a strict evaluator for Autonomous System (AS) class type classification.
+  Your task is to determine whether the AS class type mentioned in the LLM answer correctly matches the ground truth label.
+
+  The AS Tier types classify the ASes based on their size and importance in the global routing hierarchy.
+  There are 3 tier types:
+  - Tier-1
+  - Tier-2
+  - Tier-3
+
+  A match should be labeled as '1' if the LLM answer refers to the same AS tier class type as the ground truth, even if the wording differs slightly (e.g., "Tier-1" vs. "1").
+  Otherwise, label it as '0'.
+
+  Do not provide any explanation. Output only the label.
+  Your response must be one of:
+  - '1' — if the predicted AS class type is correct.
+  - '0' — if it is incorrect.
+
+  Examples:
+
+  LLM answer: "Tier-1"
+  Ground Truth: "Tier-1"
+  Output: 1
+
+  LLM answer: "Tier-1"
+  Ground Truth: "Tier-2"
+  Output: 0
+
+  LLM answer: "Tier 2"
+  Ground Truth: "Tier-2"
+  Output: 1
+
+  LLM answer: "Tier-1"
+  Ground Truth: "Tier-3"
+  Output: 0
+
+  LLM answer: "Content"
+  Ground Truth: "Tier-3"
+  Output: 0
+
+  LLM answer: {llm_answer}
+  Ground Truth: {ground_truth}
+  Output:
+
+
+as_tier_hall_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant must answer with exactly one token –
+  the AS “class type” of the organisation, chosen from the list below (case-
+  insensitive, surrounding quotes optional, no extra words):**
+
+    • Tier-1
+    • Tier-2
+    • Tier-3
+
+  Any other format :multiple words, additional punctuation, prefixes such as
+  “Type:”, explanatory clauses, numbers, etc.) is disallowed. Using lower letter
+  (for example: enterprise instead of Enterprise) is allowed, and not considered
+  as a hallucination.
+
+  Classify an assistant_answer as a hallucination **iff** it is **not** exactly
+  one of the three valid tokens above after trimming whitespace, collapsing
+  consecutive spaces, converting to lower-case, and (if present) stripping a
+  single pair of surrounding quotes.
+
+  Return **"1"** if **NO** hallucination exists (the answer is one valid token,
+  even if it is the wrong class).
+  Return **"0"** if at least one hallucination exists.
+  Output only the digit.
+
+  Examples
+  Input: Tier-1
+  Output: 1
+
+  Input: "Tier-2"
+  Output: 1
+
+  Input: Tier 1
+  Output: 1
+
+  Input: Tier-3
+  Output: 1
+
+  Input: "Transit/access
+  Output: 1
+
+  Input: 123
+  Output: 0
+
+  Input: Tier-2 (123)
+  Output: 0
+
+  Input: <Tier>
+  Output: 0
+
+direct_task_prompt_as_tier: |-
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS. The AS tier has to be one of the following types: Tier-1, Tier-2, Tier-3.
+  Question:
+
+role_based_prompt_as_tier: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your job is to classify Autonomous Systems (ASes) into one of the following tiers: Tier-1, Tier-2 or Tier-3.
+  You have no access to BGP routing data, WHOIS records, IP prefix characteristics, AS relationship information, and common metadata about organizations.
+  You have to rely only on your own knowledge / memory.
+  You are methodical, analytical, and base your answers on logical reasoning, known heuristics, and evidence from the data.
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS. The AS tier has to be one of the following types: Tier-1, Tier-2, Tier-3.
+  Question:
+
+multi_step_reasoning_prompt_as_tier: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or external search. 
+  Your job is to classify Autonomous Systems (ASes) into one of the following tiers: Tier-1, Tier-2 or Tier-3.
+  You have no access to BGP routing data, WHOIS records, IP prefix characteristics, AS relationship information, and common metadata about organizations.
+  You have to rely only on your own knowledge / memory.
+
+  Follow this multi-step reasoning process:
+
+  Step 1: **Extract key features**
+  List all relevant features about the AS (e.g., number of customers, peers, prefix size, WHOIS info).
+
+  Step 2: **Analyze characteristics**
+  For each feature, explain what it might indicate about the AS tier. Use common heuristics and known BGP classification logic.
+    You are methodical, analytical, and base your answers on logical reasoning, known heuristics, and evidence from the data.
+    
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS. The AS tier has to be one of the following types: Tier-1, Tier-2, Tier-3.
+  Question:
+
+few_shots_prompt_as_tier: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your job is to classify Autonomous Systems (ASes) into one of the following tiers: Tier-1, Tier-2 or Tier-3.
+  You have no access to BGP routing data, WHOIS records, IP prefix characteristics, AS relationship information, and common metadata about organizations.
+  You have to rely only on your own knowledge / memory.
+  
+  For example:
+
+  ASN: 1299
+  Tier: Tier-1
+
+  ASN: 6810
+  Class Type: Tier-3
+
+  ASN: 396722
+  Class Type: Tier-3
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS. The AS tier has to be one of the following types: Tier-1, Tier-2, Tier-3.
+  Question:
+
+cot_prompt_as_tier: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your job is to classify Autonomous Systems (ASes) into one of the following tiers: Tier-1, Tier-2 or Tier-3.
+  You have no access to BGP routing data, WHOIS records, IP prefix characteristics, AS relationship information, and common metadata about organizations.
+  You have to rely only on your own knowledge / memory.
+
+  Think step-by-step and explain your reasoning before giving the final answer. 
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS. The AS tier has to be one of the following types: Tier-1, Tier-2, Tier-3.
+  Question:
+  
+react_prompt_as_tier: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. 
+  Your mission: label a queried ASN as **Tier-1**, **Tier-2**, or **Tier-3** using CAIDA-inspired features and the ReAct pattern.
+
+  ==============  TOOLS  ==============
+  1. as_rank - given ASN (int), returns the caida as rank of the as (int).
+      - Input: ASN(int)
+      - Output: AS rank (int)
+  2. as_cone_size - given ASN (int), returns the customer-cone size of the as.
+      - Input: ASN(int)
+      - Output: Customer-cone size (int)
+  3. as_degree - given ASN (int), returns the degree of the as.
+      - Input: ASN(int)
+      - Output: Degree (int)
+
+  ============  HARD RULES  ============
+  1. Invoke each tool exactly one time.
+  2. According the data - classify the AS business-type: **Tier-1*, **Tier-2**, or **Tier-3**
+  3. After you infer the final Observation:
+      • Write **no further Thoughts**.
+      • Make **no further tool calls**.
+  5. After you receive the observation, respond with **one single line** with the AS type, exactly:
+    <Tier-1 | Tier-2 | Tier-3>
+  6. Do not explain your reasoning, and do not respond with any other information.
+  7. If the user’s request is *not* “Write down the AS type of {asn} …”, reply:
+      Final Answer: I cannot help with that.
+      

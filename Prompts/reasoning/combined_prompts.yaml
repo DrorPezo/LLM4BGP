@@ -1,0 +1,280 @@
+x_rels_context: |-
+  The desired task is to find the top x ASNs that have a certain relationship with a given AS, 
+  according the user request.
+  Given three scalar inputs: asn (desired ASN), x (number ASes) and rel (providers | customers | peers | siblings) look up
+  the dataset and return *exactly* the top x ASNs that satisfy that relationship with the given asn.
+  An example for a user request - "find the top 5 peers with AS6810".
+
+x_rels_hall_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant must output exactly one line that meets *all*
+  of the following requirements (surrounding quotes optional, no extra text):**
+
+  • A comma-separated list of **exactly _x_ Autonomous System numbers (ASNs)**.
+  • Each ASN is a non-negative integer that appears in the ground-truth list
+    `top_asns` for the given (asn, rel) pair.
+  • The ASNs are **in the same order** as in `top_asns` (i.e. from strongest to
+    weakest relationship).
+  • No spaces, words, prefixes, line breaks, explanatory notes, or punctuation
+    other than commas are present.
+  ---
+  ### Hallucination rules
+  After normalising the assistant’s answer (trim whitespace, collapse duplicate
+  spaces, convert to lower-case, strip one pair of surrounding quotes), classify
+  it as a hallucination **iff** at least one of the following holds:
+
+  1. It contains **more than _x_ ASNs**.
+  2. It contains **non-numeric characters** (apart from commas) or any extra
+    words / punctuation.
+  3. The answer is not comma separated list of ASes (for example, valid lists: AS101, AS605, AS985 or 101,605,950 or 101, 606, 137)
+  ---
+
+  ### Output expected from *you* (the judge)
+  Return **"1"** if **NO** hallucination exists (the answer is a valid, correctly
+  formatted list, even if some ASNs are missing because the model listed fewer
+  than _x_ items).
+  Return **"0"** if at least one hallucination rule is triggered.
+  Output only the digit.
+
+  Examples:
+  Input: 3356, 174, 8551, 643
+  Output: 1
+
+  Input: AS3356, AS174, AS8551, AS643
+  Output: 1
+
+  Input: sibling, sibling, sibling, sibling, sibling, sibling, sibling
+  Output: 0
+
+  Input: <x_rels>
+  Output: 0
+
+  Input: "3356, 10568"
+  Output: 1
+
+  Input: "3356 10568 8551"
+  Output: 1
+
+  Input: 643 10568 1299
+  Output: 1
+
+  Input: no ases
+  Output: 0
+
+  Input: <status>
+  Output: 0
+
+x_rels_judge_prompt: |-
+  You are an expert in internet infrastructure and BGP data.
+  Your task is to determine whether two answers have the same meaning an AS relationships and types class.
+  The questions type will be from the format: "What are the top x ASNs with relationship of yyy with ASN zzz?"
+  You'll be given the question, The ground-truth answer and the predicted answer.
+
+  Instructions:
+  1. Compare the ground-truth answer and the predicted answer.
+  2. If the answers are the same - even if there are slight differences in wording, abbreviations, or formatting — respond with "Correct".
+  3. If the answers are not the same (for example - yes versus not), respond with "Incorrect".
+
+  Your answer should be one word only: either '1' for **Correct** or '0 for **Incorrect**.
+
+  Examples:
+
+  Question: Who are the top 2 siblings of AS596?
+  Answer: 3356, 3349
+  Prediction: 3356, 3349
+  Your evaluation: Correct
+
+  IP Prefix: Who are the top 2 siblings of AS596?
+  Ground-truth: 3356, 3349
+  Prediction: 174, 2914
+  Your evaluation: Incorrect
+
+  IP Prefix: Who are the top 2 siblings of AS596?
+  Ground-truth: 3356, 3349
+  Prediction: 3356, 2914
+  Your evaluation: Incorrect
+  
+direct_task_prompt_x_rels: |-
+  Return the top x ASNs that have a certain relationship with a given AS, 
+  according the user request.
+  Output only the comma‑separated list of the top x ASNs numbers, witout the "AS" prefix, and without extra text.
+
+role_based_x_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your task is to return the top x ASes with a certain relationship with a given AS, based on the information provided in the question,
+  where x is the number of the top ASes required.
+  The possible relationship types are:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  Return the top x ASNs that have a certain relationship with a given AS.
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other in the following format:
+  <AS1, AS2, AS3, ... , AS X>, where AS1, AS2, AS3, ... , AS X are the top x ASes with the desired relationship.
+  For example:
+  3321, 176, 18473, 23382 
+  Output only the comma‑separated list of the top x ASNs numbers, witout the "AS" prefix, and without extra text.
+  Question:
+  
+
+multi_step_prompt_x_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your task is to return the top x ASes with a certain relationship with a given AS, based on the information provided in the question,
+  where x is the number of the top ASes required.
+  The possible relationship types are:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  Return the top x ASNs that have a certain relationship with a given AS.
+  
+  Think step‑by‑step, relying solely on well‑known facts:
+  1. Recall major transit providers, tier‑1 carriers, content networks, and regional ISPs.
+  2. Assess which of these are likely to stand in the given relationship with the given AS.  
+      • If relationship=providers → pick likely upstreams (tier‑1/tier‑2).  
+      • If relationship=customers → pick smaller dependent networks.  
+      • If relationship=peers → pick networks of similar size that commonly peer at IXPs.  
+      • If relationship=siblings → look for ASNs controlled by the same organization.
+  3. Rank the candidates by traffic volume, business hierarchy, or typical routing policy.
+  4. Keep only the first x ASNs, where x is the number of ASes which the user required.
+  
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other in the following format:
+  <AS1, AS2, AS3, ... , AS X>, where AS1, AS2, AS3, ... , AS X are the top x ASes with the desired relationship.
+  For example:
+  3321, 176, 18473, 23382 
+  Output only the comma‑separated list of the top x ASNs numbers, witout the "AS" prefix, and without extra text.
+  Question:
+
+
+few_shots_prompt_x_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your task is to return the top x ASes with a certain relationship with a given AS, based on the information provided in the question,
+  where x is the number of the top ASes required.
+  The possible relationship types are:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  Return the top x ASNs that have a certain relationship with a given AS.
+
+  Examples:
+  - Q: Find the top 3 customers of 7922:
+    A: 60068,13649,33287
+
+  - Q: Find the top 3 peers of 8551:
+    A: 6762,6461,9002
+
+  - Q: Find the top 9 peers of 8283:
+    A: 1299,2914,6939,6762,6453,6461,3491,4637,12956
+
+  - Q: Find the top 5 peers of 8283:
+    A: 1299,2914,6939,6762,6453
+
+  - Q: Find the top 3 peers of 8283:
+    A: 1299,2914,6939
+  
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other in the following format:
+  <AS1, AS2, AS3, ... , AS X>, where AS1, AS2, AS3, ... , AS X are the top x ASes with the desired relationship.
+  For example:
+  3321, 176, 18473, 23382 
+  Output only the comma‑separated list of the top x ASNs numbers, witout the "AS" prefix, and without extra text.
+  Question:
+
+cot_prompt_x_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your task is to return the top x ASes with a certain relationship with a given AS, based on the information provided in the question,
+  where x is the number of the top ASes required.
+  The possible relationship types are:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  Return the top x ASNs that have a certain relationship with a given AS.
+
+  Think step-by-step, then present the final comma-separated list for the top x ASes with the desired relationship.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other in the following format:
+  <AS1, AS2, AS3, ... , AS X>, where AS1, AS2, AS3, ... , AS X are the top x ASes with the desired relationship.
+  For example:
+  3321, 176, 18473, 23382 
+  Output only the comma‑separated list of the top x ASNs numbers, witout the "AS" prefix, and without extra text.
+  Question:
+
+react_prompt_prompt_x_rels: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. 
+  Your task is to return the top x ASes with a certain relationship with a given AS, based on the information provided in the question,
+  where x is the number of the top ASes required.
+  The possible relationship types are:
+  - **Provider to Customer**
+  - **Customer to Provider**
+  - **Peer to Peer**
+  - **Siblings**
+  Return the top x ASNs that have a certain relationship with a given AS.
+
+  ==============  TOOLS  ==============
+  1. as_rank - returns the rank of an AS according CAIDA AS rank DB.
+     - Input: ASN(int)
+     - Output: AS rank (int)
+  2. as_cone_size - returns the customer-cone size of an AS.
+     - Input: ASN(int)
+     - Output: Customer-cone size (int)
+  3. as_imports_with_other_asn - Returns the import rules of asn1 with asn2.
+     - Input: asn1 (int), asn2 (int)
+     - Output: imports (list of dicts)
+  4. as_exports_with_other_asn - Returns the export rules of asn1 with asn2.
+     - Input: asn1 (int), asn2 (int)
+     - Output: exports (list of dicts)
+
+  ============  HARD RULES  ============
+  1. Invoke each of the above tool only **once**.
+  2. Run the tools: as_rank, as_cone_size once for each ASN, and compare the ranks and the cone sizes of the ASes.
+  3. Run the tools: as_imports_with_other_asn, as_exports_with_other_asn to find the routing flow between the ASes.
+  4. After you infer the final Observation:
+     • Write **no further Thoughts**.
+     • Make **no further tool calls**.
+     • Respond with **one single line**, exactly, only with one relationship:
+       <Provider-Customer | Coustomer-Provider | Peers>
+     • Do not explain your reasoning or add any further thoughts.
+  5. If the user’s request is *not* “Write down the AS type of {asn} …”, reply:
+     I cannot help with that.
+
+  Using the following format, answer the following question without any other in the following format:
+  <AS1, AS2, AS3, ... , AS X>, where AS1, AS2, AS3, ... , AS X are the top x ASes with the desired relationship.
+  For example:
+  3321, 176, 18473, 23382 
+  Output only the comma‑separated list of the top x ASNs numbers, witout the "AS" prefix, and without extra text.
+  Question:
+

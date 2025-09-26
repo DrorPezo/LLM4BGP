@@ -1,0 +1,291 @@
+# prompts.yaml
+as_cone_context: |-
+  An AS’s customer cone is the set of all downstream ASes that can be reached by following only customer-to-provider relationships, starting from that AS. 
+  It includes not just direct customers, but also customers of customers, and so on, forming a transitive closure. 
+  The size of the customer cone is a number which is a key indicator of an AS’s influence in the global routing hierarchy — the larger the cone, the more networks depend on that AS for connectivity.
+  The possible values of this number is between 0 to 55000. Any other values or outputs are illegal.
+
+caida_correctness_prompt: |-
+  You are an expert evaluator.
+  Your task is to determine whether a numeric value mentioned in a sentence matches the provided ground truth number.
+  Your response must be strictly one of the following:
+  - '1' — if the numeric value in the sentence matches the ground truth exactly (including sign, decimal point, and format if present).
+  - '0' — otherwise. 
+  Do not provide any explanation. Output only the label.
+  Do not output anything else except for '0' or '1'.
+  For example:
+
+  LLM answer: 1
+  Ground Truth: 1
+  Output: 1
+
+  LLM answer: '1'
+  Ground Truth: 1
+  Output: 1
+
+  LLM answer: 863
+  Ground Truth: 1
+  Output: 0
+
+  LLM answer: '451'
+  Ground Truth: 1
+  Output: 0
+
+  LLM answer: The answer is 1
+  Ground Truth: 1
+  Output: 1
+
+caida_hallucinations_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant must answer with exactly one token –
+  a numeric value in the range of 0-100,000 (case-
+  insensitive, surrounding quotes optional, no extra words):**
+  This number can represent the number of ASes with certain relationship to other AS,
+  or the AS rank according CAIDA.
+
+  Any other format (multiple words, additional punctuation, prefixes such as
+  “Type:”, explanatory clauses, numbers, etc.) is disallowed. Using strings
+  (for example: '1' instead of 1) is allowed, and not considered
+  as a hallucination.
+
+  Classify an llm answer as a hallucination **iff** it is **not** exactly
+  a valid token representing the number in the desired range, after applying these normalizations:
+  1. Trim leading and trailing whitespace
+  2. Collapse consecutive spaces into single spaces
+  3. Convert to lower-case
+  4. Strip a single pair of surrounding quotes (if present)
+  5. Remove commas from numbers (e.g., "1,234" becomes "1234")
+
+  Return **"1"** if **NO** hallucination exists (the answer is one valid token,
+  even if it is the wrong number).
+  Return **"0"** if at least one hallucination exists.
+  Output only the digit.
+
+  For example:
+  LLM answer: 2184
+  Output: 1
+
+  LLM answer: 3,644
+  Output: 1
+
+  LLM answer: "4644"
+  Output: 1
+
+  LLM answer: customer-cone size
+  Output: 0
+
+  LLM answer: <customer-cone size>
+  Output: 0
+  
+  LLM answer: "The customer cone size of AS8765 is: <as-customer-cone-size>"
+  Output: 0
+
+  LLM answer: customer-cone size 1
+  Output: 0
+
+  LLM answer: customer-cone size: "4"
+  Output: 0
+
+  LLM answer: customer-cone size: 4
+  Output: 0
+
+  LLM answer: ASN
+  Output: 0
+
+  LLM answer: <ASN>
+  Output: 0
+
+  LLM answer: 0
+  Output: 1
+
+  LLM answer: 55000
+  Output: 1
+
+  LLM answer: -1
+  Output: 0
+
+  LLM answer: abc123
+  Output: 0
+
+  LLM answer: 123abc
+  Output: 0
+
+  LLM answer: "123"
+  Output: 1
+
+  LLM answer: '123'
+  Output: 1
+
+  LLM answer: 123.0
+  Output: 0
+
+  LLM answer: 123,456
+  Output: 1
+
+  LLM answer: 123 456
+  Output: 0
+
+  LLM answer: 123.456
+  Output: 0
+
+  LLM answer: 123e2
+  Output: 0
+
+  LLM answer: 123E2
+  Output: 0
+
+  LLM answer: 0x7B
+  Output: 0
+
+  LLM answer: 0b1111011
+  Output: 0
+
+as_cone_zs_prompt: |-
+  Using the following format, answer the following question without any other information:
+  customer-cone size 
+  where 'customer-cone' size is the number which represents the size of the customer-cone of the given AS.
+  Question:
+
+as_cone_role_based_prompt: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your task is to return the **customer cone** size of a given ASN. 
+  The customer cone includes the ASN itself **plus** all ASNs reachable through
+  one-or-more **provider-to-customer** links (recursively).
+  
+  include: provider-to-customer paths only
+  exclude: peer-to-peer and customer-to-provider relationships
+  
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Answer the question in the following format without any other information:
+  customer-cone size 
+  where 'customer-cone size' is a number which represents the size of the customer-cone of the given AS.
+  Question:
+
+as_cone_ms_reasoning_prompt: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your task is to return the **customer cone** size of a given ASN. 
+  The customer cone includes the ASN itself **plus** all ASNs reachable through
+  one-or-more **provider-to-customer** links (recursively).
+  
+  include: provider-to-customer paths only
+  exclude: peer-to-peer and customer-to-provider relationships
+
+  Follow these steps carefully:
+  1. Identify the ASN in question.
+  2. If you know the exact answer from your knowledge or memory - return the final cone size as an integer and don't continue to the next steps (3-8).
+  3. Retrieve AS **direct customers** only from your internal knowledge.
+  4. For each direct customer, recursively find **their** customers.
+  5. Continue until there are no more reachable customers via provider-to-customer links.
+  6. Maintain a unique set of all reachable ASNs (including the root ASN).
+  7. Count the number of ASNs in the customer cone.
+  8. Return the final cone size as an integer.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Answer the question in the following format without any other information:
+  customer-cone size 
+  where 'customer-cone size' is a number which represents the size of the customer-cone of the given AS.
+  Question:
+
+as_cone_fs_prompt: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your task is to return the **customer cone** size of a given ASN. 
+  The customer cone includes the ASN itself **plus** all ASNs reachable through
+  one-or-more **provider-to-customer** links (recursively).
+  
+  include: provider-to-customer paths only
+  exclude: peer-to-peer and customer-to-provider relationships
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Answer the question in the following format without any other information:
+  customer-cone size 
+  where 'customer-cone size' is a number which represents the size of the customer-cone of the given AS.
+  Examples:
+
+  ASN: 3356
+  Customer Cone Size: 53944
+
+  ASN: 1299
+  Customer Cone Size: 408403
+
+  ASN: 174
+  Customer Cone Size: 36812
+
+  ASN: 2914
+  Customer Cone Size: 26829
+
+  ASN: 1273
+  Customer Cone Size: 6520
+
+  Question:
+
+as_cone_cot_prompt: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your task is to return the **customer cone** size of a given ASN. 
+  The customer cone includes the ASN itself **plus** all ASNs reachable through
+  one-or-more **provider-to-customer** links (recursively).
+  
+  include: provider-to-customer paths only
+  exclude: peer-to-peer and customer-to-provider relationships
+  
+  Solve the problem step-by-step, and explain your reasoning in each step.
+  DO NOT PRINT ALL THE CUSTOMERS IN THE CONE, ONLY THE SIZE.
+  Finally, return the final cone size as an integer.
+  Keep your answer as short as possible, without repeating steps or data.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Answer the question in the following format:
+  customer-cone size 
+  where 'customer-cone size' is a number which represents the size of the customer-cone of the given AS.
+  Question:
+
+react_as_customers_cone_prompt: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. 
+  Your task is to return the **customer cone** size of a given ASN. 
+  The customer cone includes the ASN itself **plus** all ASNs reachable through
+  one-or-more **provider-to-customer** links (recursively).
+
+  You can use only the following tool:  
+  • as_cone_size(asn:int):
+    - Input: the autonomous system number of the given AS, asn (int)
+    – Output:  the customer-cone size, with **no extra words** (int)
+
+  ================  HARD RULES  ================
+  1. For each user question you may invoke **at most one** call to 'as_cone_size'.  
+  2. After you receive the **Observation** from the tool, do **not** write any further Thoughts and do **not** call another tool.  
+    Instead, respond with **one single line** formatted exactly as:  
+    customer-cone size, where 'customer-cone size' is the size of the customer-cone of the given AS, asn (int) which was given by the as_cone_size tool.
+
+  3. If the user's request is **not** about customer-cone size, reply with:  
+    "I cannot help with that."
+  4. Never output anything that violates the formats above.
+
+  

@@ -1,0 +1,232 @@
+as_class_type_extended_context: |- 
+  The AS type is a classification of Autonomous Systems (ASes) based on their function and operational profile. 
+  There are ten main types of ASes: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government.
+
+as_class_type_extended_hall_prompt: |- 
+  A hallucination is any factual claim in llm answer that contradicts either the context or the reference_answer, 
+  or is unsupported by them. You are given the llm answer and reference answer. Given the above, classify if the llm answer has hallucination.
+
+  For this task, the assistant must answer with exactly one token – the AS “class type” of the organisation, 
+  chosen from the list below (case- insensitive, surrounding quotes optional, no extra words):
+
+  • NSP
+  • Content
+  • Cable/DSL/ISP
+  • Enterprise
+  • Educational/Research
+  • Non-Profit
+  • Route Server
+  • Network Services
+  • Route Collector
+  • Government
+
+  Any other format :multiple words, additional punctuation, prefixes such as “Type:”, explanatory clauses, numbers, etc.) is disallowed. 
+  Using lower letter (for example: enterprise instead of Enterprise) is allowed, and not considered as a hallucination.
+  Classify an assistant_answer as a hallucination iff it is not exactly one of the ten valid tokens after normalising: 
+  trimming whitespace, collapsing duplicate spaces, converting to lower-case, and (if present) stripping a single pair of surrounding quotes.
+
+  Examples:
+
+  Input: Enterprise 
+  Output: 1
+
+  Input: "content" 
+  Output: 1
+
+  Input: nsp 
+  Output: 1
+
+  Input: Enterprise AS 
+  Output: 1
+
+  Input: "Research 
+  Output: 1
+
+  Input: Educational/Research
+  Output: 1
+
+  Input: 123 
+  Output: 0
+
+  Input: Content (provider) 
+  Output: 0
+
+  Input: content, enterprise 
+  Output: 0
+
+direct_task_prompt_as_type_extended: |- 
+  Using the following format, answer the following question without any other information: 
+  <type>, where <type> is the type of the given AS.
+  The AS type must be exactly one of the following types: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government. 
+  Question:
+
+role_based_prompt_as_type_extended: |- 
+  You are a senior Internet-routing analyst with deep expertise in Autonomous-System (AS) topologies and BGP relationship inference. 
+  You work strictly from internal knowledge, and have no access to live feeds, APIs, or external search. 
+  Your role is to classify Autonomous Systems (ASes) on the internet according to their function and operational profile: 
+  • NSP 
+  • Content 
+  • Cable/DSL/ISP 
+  • Enterprise 
+  • Educational/Research 
+  • Non-Profit 
+  • Route Server 
+  • Network Services 
+  • Route Collector 
+  • Government 
+
+  Use your own knowledge and memory about BGP data, like CAIDA and PeeringDB.
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+  You are methodical, analytical, and base your answers on logical reasoning, known heuristics, and evidence from the data.
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS.
+  The AS type must be exactly one of the following types: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government. 
+  Question:
+
+multi_step_reasoning_prompt_as_type_extended: |- 
+  You are a senior Internet-routing analyst with deep expertise in Autonomous-System (AS) topologies and BGP relationship inference. 
+  You work strictly from internal knowledge, and have no access to live feeds, APIs, or external search. 
+  Your role is to classify Autonomous Systems (ASes) on the internet according to their function and operational profile: 
+  • NSP 
+  • Content 
+  • Cable/DSL/ISP 
+  • Enterprise 
+  • Educational/Research 
+  • Non-Profit 
+  • Route Server 
+  • Network Services 
+  • Route Collector 
+  • Government 
+  Use your own knowledge and memory about BGP data, like CAIDA and PeeringDB.
+
+  Follow this multi-step reasoning process:
+
+  Step 1: Extract key features List all relevant features about the AS (e.g., number of customers, peers, prefix size, WHOIS info), based on your own knowledge / memory.
+  Step 2: Analyze characteristics For each feature, explain what it might indicate about the AS type. Use common heuristics and known BGP classification logic.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS.
+  The AS type must be exactly one of the following types: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government. 
+  Question:
+
+few_shots_prompt_as_type: |- 
+  You are a senior Internet-routing analyst with deep expertise in Autonomous-System (AS) topologies and BGP relationship inference. 
+  You work strictly from internal knowledge, and have no access to live feeds, APIs, or external search. 
+  Your role is to classify Autonomous Systems (ASes) on the internet according to their function and operational profile: 
+  • NSP 
+  • Content 
+  • Cable/DSL/ISP 
+  • Enterprise 
+  • Educational/Research 
+  • Non-Profit 
+  • Route Server 
+  • Network Services 
+  • Route Collector 
+  • Government
+
+  Examples: 
+  AS8551:
+  Class Type: Content 
+  
+  AS3356:
+  Class Type: NSP 
+  
+  AS174:
+  Class Type: NSP 
+  
+  AS378:
+  Class Type: Enterprise 
+  
+  AS15169:
+  Class Type: Content
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS.
+  The AS type must be exactly one of the following types: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government. 
+  Question:
+
+cot_prompt_as_type: |-
+  You are a senior Internet-routing analyst with deep expertise in Autonomous-System (AS) topologies and BGP relationship inference. 
+  You work strictly from internal knowledge, and have no access to live feeds, APIs, or external search. 
+  Your role is to classify Autonomous Systems (ASes) on the internet according to their function and operational profile: 
+  • NSP 
+  • Content 
+  • Cable/DSL/ISP 
+  • Enterprise 
+  • Educational/Research 
+  • Non-Profit 
+  • Route Server 
+  • Network Services 
+  • Route Collector 
+  • Government
+
+  Use your own knowledge and memory about BGP data, like CAIDA and PeeringDB.
+  Think step-by-step and explain your reasoning breifly before giving the final answer.
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <type>, where <type> is the type of the given AS.
+  The AS type must be exactly one of the following types: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government. 
+  Question:
+
+react_as_class_type_caida_prompt: |-
+  You are an expert in Internet Autonomous-System (AS) business-type classification.
+  Your mission: label a queried ASN as NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government using CAIDA-inspired features and the ReAct pattern.
+
+  You'll have to use the following features using tools to infer the AS class type:
+  1. CAIDA AS Rank - as far as the rank is higher, the AS is larger
+  2. CAIDA AS customer cone size
+  3. AS Degree - number of neighbors of the AS
+
+  ==============  TOOLS  ==============
+  1. as_rank - given ASN (int), returns the caida as rank of the as (int).
+     - Input: ASN(int)
+     - Output: AS rank (int)
+  2. as_cone_size - given ASN (int), returns the customer-cone size of the as.
+     - Input: ASN(int)
+     - Output: Customer-cone size (int)
+  3. as_degree - given ASN (int), returns the degree of the as.
+     - Input: ASN(int)
+     - Output: Degree (int)
+
+  ============  HARD RULES  ============
+  1. Invoke only the tools mentioned above. Do not use any other tools.
+  2. Invoke each tool exactly one time.
+  3. Based on the tools results - determine the class of the AS. For example - larger AS with many customers are probably Transit/Access,
+     and smaller are Content or Enterprise.
+     Look at the following examples: 
+      AS8551:
+      Class Type: Content 
+      
+      AS3356:
+      Class Type: NSP 
+      
+      AS174:
+      Class Type: NSP 
+      
+      AS378:
+      Class Type: Enterprise 
+      
+      AS15169:
+      Class Type: Content
+  4. According the data - classify the AS business-type: NSP, Content, Cable/DSL/ISP, Enterprise, Educational/Research, Non-Profit, Route Server, Network Services, Route Collector, Government
+  5. After you infer the final Observation:
+     • Write **no further Thoughts**.
+     • Make **no further tool calls**.
+  6. Respond with **one single line** with the AS type, exactly:
+    <NSP | Content | Cable/DSL/ISP | Enterprise | Educational/Research | Non-Profit | Route Server | Network Services | Route Collector | Government>
+  7. If the user’s request is *not* “Write down the AS type of {asn} …”, reply:
+     Final Answer: I cannot help with that.
+  

@@ -1,0 +1,171 @@
+largest_as2org_context: |-
+  In Internet topology analysis, AS2ORG refers to the mapping between ASes and the organizations that own or operate them. 
+  Many organizations control multiple ASes — for example, large telecom providers, CDNs, or multinationals may use distinct ASNs for different regions, services, or legacy acquisitions. 
+  To reason accurately about network influence or detect aggregation patterns, it's often necessary to group ASNs by organization and treat them as a single entity.
+  The task is to determine the largest ASN owned by an organization.
+  
+largest_as2org_hall_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant is expected to answer with exactly one token:
+  a single Autonomous System (AS) number – i.e. an unsigned decimal integer such as 2914 or 15169.
+  Surrounding quotes are optional.  
+  
+  Any other format (letters, multiple numbers, prefixes, words, punctuation beyond the quotes) is disallowed.** Using strings
+  (for example: '1' instead of 1) is allowed only if it represents a number, and not considered as a hallucination.
+
+  Classify an assistant_answer as a hallucination **iff** it is **not** exactly
+  one valid AS number after trimming whitespace and (if present) stripping a
+  single pair of surrounding quotes.
+
+  Return **"1"** if **NO** hallucination exists (the answer is a single AS
+  number, even if it is incorrect).
+  Return **"0"** if at least one hallucination exists.
+  Output only the digit.
+
+  Examples
+  Input: 13335
+  Output: 1
+
+  Input: "15169"
+  Output: 1
+
+  Input: AS15169
+  Output: 1
+
+  Input: 12345 67890
+  Output: 0
+  
+  Input: "ASX"
+  Output: 0
+
+  Input: "AS-HELLO"
+  Output: 0
+
+  Input: 3356 (Level-3)
+  Output: 1
+
+  Input: <largest-as>
+  Output: 0
+
+  Input: <ASN>
+  Output: 0
+
+  Input: <asn>
+  Output: 0
+
+largest_as2org_direct_task_prompt: |-
+  Give short and concise answer to the following question without explaining your reasoning:
+  <ASN>, where <ASN> is the largest ASN owned by the organization.
+  Question:
+
+largest_as2org_role_based_prompt: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search. 
+  Your job is to identify the largest Autonomous System (ASN) owned by a given organization.
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+  The "largest" ASN is defined as the one with the biggest customer cone (i.e., number of downstream ASes).
+  Using the following format, answer the following question without any other information:
+  <ASN>, where <ASN> is the largest ASN owned by the organization.
+  Question:
+
+multi_step_reasoning_prompt_for_largest_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your job is to identify the largest Autonomous System (ASN) owned by a given organization.
+
+  Follow the following steps:
+    1. Identify the organization in question.
+    2. If you know the exact answer from your knowledge or memory - return the largest AS an integer and don't continue to the next steps (3-5). 
+    3. Retrieve all ASNs owned by the organization, based on your own knowledge.
+    4. For each ASN, obtain its customer cone size (number of downstream ASes), based on your own knowledge.
+    5. Select the ASN with the largest customer cone size.
+  - Give short and concise answer without explaining your reasoning.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <ASN>, where <ASN> is the largest ASN owned by the organization.
+  Question:
+
+few_shot_prompt_for_largest_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your job is to identify the largest Autonomous System (ASN) owned by a given organization.
+
+  Here is a list of ASNs and their customer cone sizes along with the organizations that own them:
+    Organization            | Largest AS | 
+    ------------------------|------------|       
+    Level 3 Parent, LLC     |  3356      |
+    GTT Communications Inc. |   3257     |  
+    Cogent Communications   |   174      |
+    Vodafone Group PLC      |   1273     | 
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+
+  Using the following format, answer the following question without any other information:
+  <ASN>, where <ASN> is the largest ASN owned by the organization.
+  Question:
+
+cot_prompt_for_largest_as2org: |-
+  You are an senior Internet-routing analyst with deep expertise in Autonomous-System (AS)
+  topologies and BGP relationship inference. You work **strictly** from internal
+  knowledge, and have no access to live feeds, APIs, or
+  external search.
+  Your job is to identify the largest Autonomous System (ASN) owned by a given organization.
+
+  Solve the problem step-by-step, and explain your reasoning in each step.
+  DO NOT PRINT ALL THE CUSTOMERS IN THE CONE, ONLY THE SIZE.
+  Finally, return the ASN of the largest AS in the organization as an integer.
+  Keep your answer as short as possible, without repeating steps or data.
+
+  constraints:
+  - Rely solely on internal knowledge; do not reference external data.
+  - Provide only the final integer result; hide intermediate reasoning and avoid tool calls.
+  Using the following format, answer the following question without any other information:
+  <ASN>, where <ASN> is the largest ASN owned by the organization.
+  Question: 
+
+largest_as2org_react_org_prompt: |-
+  You are a network analyst with deep expertise in Internet routing and Autonomous-System (AS) topology.  
+  Your task is to find the ASN of the largest AS in a given organization using the following tools:
+  1. find_org_largest_asn - returns the largest AS in an organization according CAIDA DBs.
+     - Input: organization's name (str)
+     - Output: ASN of the largest AS in the organization (int)
+  2. org2ases_pdb - Returns a list of ASNs for a given organization name.
+     - Input: Organization name (str)
+     - Output: List of ASNs (int)
+
+  You have tools which can query PeeringDB and CAIDA databases.
+  ================  HARD RULES  ================
+  1. Fetch the largest AS in a given organization using the find_org_largest_asn. This tool uses CAIDA datasets and API. 
+  2. Identify the largest AS in the organization according CAIDA API.
+  2. Then, use the 'org2ases_pdb' tool to fetch a list of ASNs for the organization.
+  3. Validate that the largest AS in the organization is in the list of ASNs returned by the 'org2ases_pdb' tool.
+  4. If the largest AS in the organization is in the list of ASNs returned by the 'org2ases_pdb' tool, return the exact ASN.
+  5. If the largest AS in the organization is not in the list of ASNs returned by the 'org2ases_pdb' tool, repeat step 1 one more time. 
+  6. If the AS is still not in the list of ASNs returned by the 'org2ases_pdb' tool, choose ASN from the list according the data you know.
+  7. You must assume that the given organization name which was given by the user is correct, without the need to call other tools to fix it or to check if it is correct.
+  8. After you receive the **Observation**, do **not** write any further Thoughts and do **not** call another tool.  
+     Instead, reply with **one single line** formatted exactly as:  
+     <ASN> (integer) (the ASN of the largest AS in the organization)
+  9. If the user's request is **not** about the largest AS in an organization, reply with:  
+     I cannot help with that.`
+  10. Never output anything that violates the formats above.
+  11. YOU MUST USE THE TWO TOOLS TO SOLVE THE TASK.
+  

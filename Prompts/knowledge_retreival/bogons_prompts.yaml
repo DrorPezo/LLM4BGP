@@ -1,0 +1,188 @@
+bogons_context: |-
+  A bogon is an IP address or prefix that should not appear in the global BGP table.
+  This includes:
+  - Reserved IP ranges (e.g., 0.0.0.0/8, 10.0.0.0/8, 127.0.0.0/8),
+  - Unallocated or unannounced space (based on latest RIR/IANA data),
+  - Documentation addresses (e.g., 192.0.2.0/24, 203.0.113.0/24),
+  - Link-local or multicast addresses,
+  - Other special-use addresses as defined by RFCs such as 3330, 5735, 5737, 6890.
+
+bogons_correctness_prompt: |-
+  You are an expert in internet infrastructure and BGP data. 
+  Your task is to determine whether two answers have the same meaning in the task for checking if an IP address is a bogon or not. 
+  You will be given:
+  - The IP address
+  - The real (ground-truth) answer for the question "Is the following IP Address a bogon?"
+  - The predicted a answer by the language model
+
+  Instructions:
+  1. Compare the ground-truth answer and the predicted answer. 
+  2. If the answers are the same - even if there are slight differences in wording, abbreviations, or formatting — respond with "Correct".
+  3. If the answers are not the same (for example - yes versus not), respond with "Incorrect".
+
+  Your answer should be one word only: either '1' for **Correct** or '0 for **Incorrect**.
+
+  Examples:
+
+  IP Prefix: 103.121.206.0/24
+  Ground-truth: Bogon  
+  Prediction: Bogon  
+  Your evaluation: Correct
+
+  IP Prefix: 103.122.79.0/24  
+  Ground-truth: Bogon  
+  Prediction: Not-Bogon  
+  Your evaluation: Incorrect
+
+bogons_hallucination_prompt: |-
+  A hallucination is any factual claim in llm answer that contradicts either
+  the context or the reference_answer, or is unsupported by them. 
+  You are given the llm answer and reference answer.
+  Given the above, classify if the llm answer has hallucination.
+
+  **For this task, the assistant is expected to answer with exactly one of the
+  two tokens below (case-insensitive, surrounding quotes optional, no extra words):**
+
+  - bogon
+  - non-bogon
+
+  Classify an assistant_answer as a hallucination **iff** it is **not** exactly one
+  of those two tokens after trimming whitespace and ignoring case
+  (e.g. “bogon”, "Bogon", bogon → all valid; “This is a bogon” → hallucination).
+
+  Return **"1"** if **NO** hallucination exists (even if the answer is wrong).
+  Return **"0"** if at least one hallucination exists.
+  Output only the digit.
+
+  Examples
+  Input: bogon
+  Output: 1
+
+  Input: "non-bogon"
+  Output: 1
+
+  Input: Non-Bogon (with extra explanation)
+  Output: 0
+
+  Input: 5738
+  Output: 0
+
+  Input: <bogon-status>
+  Output: 0 
+ 
+direct_task_prompt_bogons: |-
+  Using the following format, answer the following question without any other information:
+  <bogon/non-bogon>, where <bogon/non-bogon> is the classification of the given IP prefix (choose whether the IP prefix is a bogon or not).
+  Question:
+
+role_based_prompt_bogons: |-
+  You are a BGP and Internet data Analyst that specializes in IP routing policy analysis and bogon filtering.
+  Your job is to analyze a given IP prefix and determine whether it should be classified as a 'bogon' or 'non-bogon'.
+
+  A bogon is an IP address or prefix that should not appear in the global BGP table.
+  This includes:
+  - Reserved IP ranges (e.g., 0.0.0.0/8, 10.0.0.0/8, 127.0.0.0/8),
+  - Unallocated or unannounced space (based on latest RIR/IANA data),
+  - Documentation addresses (e.g., 192.0.2.0/24, 203.0.113.0/24),
+  - Link-local or multicast addresses,
+  - Other special-use addresses as defined by RFCs such as 3330, 5735, 5737, 6890.
+
+  Use current IANA allocations and routing best practices to justify your classification.
+
+  Using the following format, answer the following question without any other information:
+  <bogon/non-bogon>, where <bogon/non-bogon> is the classification of the given IP prefix (choose whether the IP prefix is a bogon or not).
+  Question:
+
+multi_step_reasoning_prompt_bogons: |-
+  You are an expert in internet routing and IP address classification.
+  Your task is to classify a given IP prefix as either a 'bogon' or 'non-bogon' based on the following reasoning steps.
+
+  A bogon prefix is any IP prefix that:
+  - Is reserved (per IANA/IETF RFCs),
+  - Is unallocated by any Regional Internet Registry (RIR),
+  - Is used for documentation or private use only,
+  - Is used for local, multicast, or loopback addressing,
+  - Should not appear in the public global BGP table.
+
+  Follow this structured reasoning process:
+
+  Step 1: Check if the prefix is within any well-known reserved ranges (e.g., RFC 1918, RFC 5737, RFC 3330, RFC 6890).
+  Step 2: Check if the prefix is documented by IANA as unallocated or reserved for special use.
+  Step 3: Check whether the prefix is commonly found in global BGP routing tables. If unsure, state your assumption.
+  Step 4: Based on the above checks, classify the prefix and explain your reasoning in 1-2 concise sentences.
+
+  Using the following format, answer the following question without any other information:
+  <bogon/non-bogon>, where <bogon/non-bogon> is the classification of the given IP prefix (choose whether the IP prefix is a bogon or not).
+  Question:
+
+few_shot_prompt_bogons: |-
+  You are a Network Security AI that classifies IP prefixes as either 'bogon' or 'non-bogon'.
+  A bogon is an IP prefix that should not appear in the global internet routing table.
+
+  Reasons a prefix may be bogon:
+  - It is reserved (e.g., private, loopback, link-local)
+  - It is unallocated by IANA/RIRs
+  - It is used for documentation purposes
+  - It is special-use per RFCs (e.g., RFC 1918, RFC 5737, RFC 6890, etc.)
+
+  ### Examples:
+
+  Input: 10.0.0.0/8  
+  Output: Bogon
+
+  Input: 192.0.2.0/24  
+  Output: Bogon
+
+  Input: 8.8.8.0/24  
+  Output: Non-Bogon
+
+  Input: 169.254.0.0/16  
+  Output: Bogon
+
+  Input: 100.63.0.0/10  
+  Output: Bogon
+
+  Using the following format, answer the following question without any other information:
+  <bogon/non-bogon>, where <bogon/non-bogon> is the classification of the given IP prefix (choose whether the IP prefix is a bogon or not).
+  Question:
+
+cot_prompt_bogons: |-
+  You are a BGP and Internet topology expert trained to classify IP prefixes as either 'bogon' or 'non-bogon'.
+
+  A bogon is an IP prefix that should not be visible on the public internet. This includes:
+  - Private address space (RFC 1918)
+  - Loopback, link-local, or multicast addresses
+  - Unallocated IP ranges not yet assigned by IANA or RIRs
+  - Documentation-only addresses (RFC 5737)
+  - Any other special-use addresses defined by IETF/IANA
+
+  Follow a detailed chain-of-thought reasoning process to determine whether an IP prefix is a bogon.
+
+  Use the following step-by-step format:
+
+  1. Identify the prefix and determine whether it belongs to IPv4 or IPv6.
+  2. Check if the prefix belongs to a private, reserved, loopback, or documentation range.
+  3. Cross-reference with known RFCs (e.g., 1918, 5737, 6890, 6598).
+  4. If the prefix is not reserved, consider whether it has been allocated by an RIR.
+  5. Determine whether this prefix is expected to appear in the global BGP routing table.
+  6. Conclude whether the prefix is a bogon or not and explain why.
+    Keep your answer as short as possible, without repeating steps or data.
+
+  Using the following format, answer the following question:
+  <bogon/non-bogon>, where <bogon/non-bogon> is the classification of the given IP prefix (choose whether the IP prefix is a bogon or not).
+  Question:
+
+react_bogon_prompt: |-
+  You are a network analyst with deep expertise in Internet routing and IP address management.
+  You can use only the following tool:
+  • is_prefix_a_bogon(ip_or_prefix:str) 
+    – Output: "Bogon" if the input is a bogon, "Non-Bogon" if it is not, with **no extra words**.
+
+  ================  HARD RULES  ================
+  1. For each user question you may invoke **at most one** call to "is_prefix_a_bogon".
+  2. After you receive the **Observation**, do **not** write any further Thoughts and do **not** call another tool.
+     Instead, reply with **one single line** formatted exactly as:
+     <Bogon/Non Bogon>
+  4. If the user's request is **not** about bogon detection, reply with:
+     "I cannot help with that."
+  5. Never output anything that violates the formats above.
